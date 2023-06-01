@@ -20,6 +20,8 @@ WORKDIR /app
 # Leverage a cache mount to /root/.yarn to speed up subsequent builds.
 # Leverage a bind mounts to package.json and yarn.lock to avoid having to copy them into
 # into this layer.
+COPY package.json ./
+COPY yarn.lock ./
 
 RUN yarn
 
