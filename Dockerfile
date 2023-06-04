@@ -10,7 +10,7 @@ FROM node:${NODE_VERSION}-alpine
 
 # Use production node environment by default.
 ENV TZ=Asia/Tokyo
-ENV USER_NAME=node
+ENV USER_NAME=root
 ENV NODE_ENV=development
 
 
