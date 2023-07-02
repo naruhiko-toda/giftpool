@@ -3,3 +3,4 @@ phoenicstar.iml
 node_modules
 .next
 coverage/
+*.log
