@@ -12,7 +12,7 @@ services:
     container_name: server
     build:
       context: .
-    command: yarn start
+    command: yarn dev
     environment:
       NODE_ENV: production
     volumes:
