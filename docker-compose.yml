@@ -8,13 +8,13 @@
 # database or a cache. For examples, see the Awesome Compose repository:
 # https://github.com/docker/awesome-compose
 services:
-  server:
-    container_name: server
+  app:
+    container_name: app
     build:
       context: .
     command: yarn dev
     environment:
-      NODE_ENV: production
+      NODE_ENV: development
     volumes:
       - ./:/app
       - node_modules:/app/node_modules
