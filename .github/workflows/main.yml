@@ -36,7 +36,9 @@ jobs:
       run: yarn playwright install --with-deps
 
     - name: Run Playwright tests
-      run: yarn e2e
+      run: |
+        yarn dev
+        yarn e2e
 
     - uses: actions/upload-artifact@v3
       if: always()
