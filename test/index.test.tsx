@@ -4,10 +4,10 @@ import Page from "../app/page";
 
 
 describe('Home', () => {
-  it('renders a heading', () => {
+  it('レッスン予約画面が表示されていること', () => {
     render(<Page />)
 
-    const heading = screen.getByText('Hello, Next.js!')
+    const heading = screen.getByText('レッスン予約')
 
     expect(heading).toBeInTheDocument()
   })
