@@ -1,6 +1,10 @@
 name: Main
 on:
   push:
+
+env:
+  SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+
 jobs:
   test:
     timeout-minutes: 60
@@ -67,3 +71,17 @@ jobs:
         name: playwright-report
         path: playwright-report/
         retention-days: 30
+
+    - name: Slack Notification on Success
+      if: ${{ success() }}
+      uses: rtCamp/action-slack-notify@v2
+      env:
+        SLACK_TITLE: Deploy Success
+        SLACK_COLOR: good
+
+    - name: Slack Notification on Failure
+      if: ${{ failure() }}
+      uses: rtCamp/action-slack-notify@v2
+      env:
+        SLACK_TITLE: Deploy Failure
+        SLACK_COLOR: danger
