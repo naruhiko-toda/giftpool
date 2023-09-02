@@ -47,14 +47,11 @@ jobs:
       id: playwright-cache
       with:
         path: |
-          ~/.cache/ms-playwright
+          ~/Library/Caches/ms-playwright
+          **/node_modules/playwright
         key: ${{ runner.os }}-playwright-${{ env.PLAYWRIGHT_VERSION }}
 
     - run: yarn playwright install --with-deps
-      if: steps.playwright-cache.outputs.cache-hit != 'true'
-
-    - run: yarn playwright install-deps
-      if: steps.playwright-cache.outputs.cache-hit != 'true'
 
     - name: Run Playwright tests
       run: yarn e2e:ci
