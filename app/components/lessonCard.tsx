@@ -1,7 +1,10 @@
-import {Card, CardContent, CardMedia, Divider, Typography} from "@mui/material";
-import {Box} from "@mui/system";
+import { Card, CardContent, CardMedia, Divider, Typography } from "@mui/material";
+import { Box } from "@mui/system";
+import React from "react";
 
-export const LessonCard = ({ title, time, price, path, name }): JSX.Element => (
+import { Lesson } from "../types/lesson";
+
+export const LessonCard: React.FC<Lesson> = ({ title, time, price, path, name }): JSX.Element => (
   <Card data-testid={`lessonCard_${name}`}>
     <CardMedia component="img" image={`./images/${path}`} alt={name} />
     <Divider />
