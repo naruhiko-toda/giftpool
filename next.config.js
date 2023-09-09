@@ -1,13 +1,13 @@
 /** @type {import('next').NextConfig} */
 const withPWA = require("next-pwa");
 
+const pwaConfig = {
+  dest: "public",
+};
 const settings = {
   devIndicators: {
-    autoPrerender: false,
+    buildActivityPosition: 'bottom-right'
   },
-  pwa: {
-    dest: "public",
-  }
 };
 
-module.exports = process.env.NODE_ENV === 'development' ? settings : withPWA(settings);
+module.exports = process.env.NODE_ENV === 'development' ? settings : withPWA(settings.merge(pwaConfig));
