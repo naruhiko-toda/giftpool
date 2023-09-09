@@ -10,4 +10,4 @@ const settings = {
   },
 };
 
-module.exports = process.env.NODE_ENV === 'development' ? settings : withPWA(settings.merge(pwaConfig));
+module.exports = process.env.NODE_ENV === 'development' ? settings : withPWA(Object.assign(settings, pwaConfig));
