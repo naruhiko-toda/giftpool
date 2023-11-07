@@ -14,47 +14,20 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Set .node-version
-      run: echo "NODE_VERSION=$(cat .node-version)" >> $GITHUB_ENV
-
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ env.NODE_VERSION }}
-
-    - uses: actions/cache@v3
-      id: node_modules_cache_id
-      env:
-        cache-name: cache-node-modules
-      with:
-        path: '**/node_modules'
-        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
-    - if: ${{ steps.node_modules_cache_id.outputs.cache-hit != 'true' }}
-      run: yarn install --frozen-lockfile
+    - name: Setup Bun.sh
+      uses: oven-sh/setup-bun@v1
 
     - name: Install dependencies
-      run: yarn
+      run: bun install
 
-    - name: Run jest
-      run: yarn test
+    - name: Run unit test
+      run: bun test
 
-    - name: Get installed Playwright version
-      id: playwright-version
-      run: echo "PLAYWRIGHT_VERSION=$(node -e "console.log(require('./yarn.lock').dependencies['@playwright/test'].version)")" >> $GITHUB_ENV
-
-    - name: Cache playwright binaries
-      uses: actions/cache@v3
-      id: playwright-cache
-      with:
-        path: |
-          ~/Library/Caches/ms-playwright
-          **/node_modules/playwright
-        key: ${{ runner.os }}-playwright-${{ env.PLAYWRIGHT_VERSION }}
-
-    - run: yarn playwright install --with-deps
+    - name: Setup playwright
+      run: bun playwright install --with-deps
 
     - name: Run Playwright tests
-      run: yarn e2e:ci
+      run: bun e2e:ci
 
     - uses: actions/upload-artifact@v3
       if: always()

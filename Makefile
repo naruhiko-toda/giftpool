@@ -1,3 +1,7 @@
+.PHONY: test e2e
 build:
-	$(eval NODE_VERSION=$(shell cat .node-version))
-	docker-compose build --no-cache --build-arg NODE_VERSION=${NODE_VERSION}
+	docker-compose build --no-cache
+test:
+	docker-compose run --rm app bun test
+e2e:
+	docker-compose run --rm app bun playwright test

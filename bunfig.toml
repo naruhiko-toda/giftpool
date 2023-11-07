@@ -1,0 +1,9 @@
+framework = "next"
+
+[install.lockfile]
+save = false
+
+[test]
+root = "./test"
+preload = "./happydom.ts"
+coverage = true

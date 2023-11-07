@@ -12,7 +12,7 @@ services:
     container_name: app
     build:
       context: .
-    command: yarn dev
+    command: bun run dev
     environment:
       NODE_ENV: development
     volumes:

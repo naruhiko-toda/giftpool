@@ -1,4 +1,4 @@
-import { LessonCard } from "./components/lessonCard";
+import {LessonCard} from "./components/lessonCard";
 import {LessonRepository} from "./repositories/lessons";
 import {Lesson} from "./types/lesson";
 
