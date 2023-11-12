@@ -36,16 +36,12 @@ jobs:
         path: playwright-report/
         retention-days: 30
 
-    - name: Slack Notification on Success
-      if: ${{ success() }}
-      uses: rtCamp/action-slack-notify@v2
+    - name: Notify deployment
+      uses: 8398a7/action-slack@v3.8.0
+      with:
+        status: ${{ job.status }}
+        fields: all
       env:
-        SLACK_TITLE: Deploy Success
-        SLACK_COLOR: good
-
-    - name: Slack Notification on Failure
-      if: ${{ failure() }}
-      uses: rtCamp/action-slack-notify@v2
-      env:
-        SLACK_TITLE: Deploy Failure
-        SLACK_COLOR: danger
+        GITHUB_TOKEN: ${{ secrets.DEPENDABOT_AUTO_MERGE_TOKEN }}
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      if: always()
