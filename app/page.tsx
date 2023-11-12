@@ -2,8 +2,8 @@ import { LessonCard } from "./components/lessonCard";
 import { LessonRepository } from "./repositories/lessons";
 import { Lesson } from "./types/lesson";
 
-const Page = (): JSX.Element => {
-  const lessons: Lesson[] = new LessonRepository().getLessons();
+const Page = async (): JSX.Element => {
+  const lessons: Lesson[] = await new LessonRepository().getLessons();
   return (
     <>
       <h1>レッスン予約</h1>
