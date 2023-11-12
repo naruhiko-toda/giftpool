@@ -48,4 +48,4 @@ const Head = (): JSX.Element => (
     <link rel="manifest" href="/manifest.json" />
   </head>
 );
-export default Head
+export default Head;

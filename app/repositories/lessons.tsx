@@ -1,7 +1,7 @@
-import {Lesson} from "../types/lesson";
+import { Lesson } from "../types/lesson";
 
 export class LessonRepository {
-   getLessons = (): Lesson[] => {
+  getLessons = (): Lesson[] => {
     return [
       {
         title: "コーチングレッスン",
@@ -19,5 +19,4 @@ export class LessonRepository {
       },
     ];
   };
-
 }

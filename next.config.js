@@ -6,4 +6,4 @@ const pwaConfig = {
 };
 const settings = {};
 
-module.exports = process.env.NODE_ENV === 'development' ? settings : withPWA(Object.assign(settings, pwaConfig));
+module.exports = process.env.NODE_ENV === "development" ? settings : withPWA(Object.assign(settings, pwaConfig));
