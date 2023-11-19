@@ -21,7 +21,7 @@ async function main() {
   })
 }
 
-await main()
+main()
   .then(async () => {
     await prisma.$disconnect()
   })
