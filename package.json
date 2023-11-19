@@ -10,7 +10,8 @@
     "test": "jest",
     "e2e": "playwright test",
     "e2e:ci": "CI=true playwright test",
-    "format": "prettier --write './**/*.{js,jsx,ts,tsx,json}'"
+    "format": "prettier --write './**/*.{js,jsx,ts,tsx,json}'",
+    "seed": "bun run prisma/seed.ts"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
