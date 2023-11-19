@@ -1,23 +1,23 @@
-import prisma from "../lib/prisma";
+import prisma from '../lib/prisma'
 async function main() {
-  await prisma.lesson.deleteMany({});
+  await prisma.lesson.deleteMany({})
   await prisma.lesson.create({
     data: {
-      title: "コーチングレッスン",
+      title: 'コーチングレッスン',
       time: 90,
       price: 6000,
-      path: "coaching.png",
-      name: "coaching",
-    }
+      path: 'coaching.png',
+      name: 'coaching',
+    },
   })
   await prisma.lesson.create({
     data: {
-      title: "ES添削レッスン",
+      title: 'ES添削レッスン',
       time: 60,
       price: 5000,
-      path: "entry_sheet.png",
-      name: "entrySheet",
-    }
+      path: 'entry_sheet.png',
+      name: 'entrySheet',
+    },
   })
 }
 
