@@ -1,8 +1,8 @@
-import {Lesson} from "../types/lesson";
-import prisma from "../../lib/prisma";
+import prisma from '../../lib/prisma'
+import { Lesson } from '../types/lesson'
 
 export class LessonRepository {
   getLessons = async (): Lesson[] => {
-    return prisma.lesson.findMany();
-  };
+    return prisma.lesson.findMany()
+  }
 }

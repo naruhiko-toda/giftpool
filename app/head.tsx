@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 const Head = (): JSX.Element => (
   <head>
@@ -47,5 +47,5 @@ const Head = (): JSX.Element => (
     <link rel="icon" type="image/png" sizes="32x32" href="/favicons/icon-32x32.png" />
     <link rel="manifest" href="/manifest.json" />
   </head>
-);
-export default Head;
+)
+export default Head

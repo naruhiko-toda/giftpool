@@ -1,9 +1,9 @@
-import {LessonCard} from "./components/lessonCard";
-import {LessonRepository} from "./repositories/lessons";
-import {Lesson} from "./types/lesson";
+import { LessonCard } from './components/lessonCard'
+import { LessonRepository } from './repositories/lessons'
+import { Lesson } from './types/lesson'
 
 const Page = async (): Promise<JSX.Element> => {
-  const lessons: Lesson[] = await new LessonRepository().getLessons();
+  const lessons: Lesson[] = await new LessonRepository().getLessons()
   return (
     <>
       <h1>レッスン予約</h1>
@@ -15,9 +15,10 @@ const Page = async (): Promise<JSX.Element> => {
           price={lesson.price}
           path={lesson.path}
           name={lesson.name}
-          id={lesson.id}/>
+          id={lesson.id}
+        />
       ))}
     </>
-  );
-};
-export default Page;
+  )
+}
+export default Page
