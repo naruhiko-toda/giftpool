@@ -46,6 +46,7 @@ const Head = (): JSX.Element => (
     <link rel="icon" type="image/png" sizes="24x24" href="/favicons/icon-24x24.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicons/icon-32x32.png" />
     <link rel="manifest" href="/manifest.json" />
+    <title>PhoenicStar</title>
   </head>
 )
 export default Head
