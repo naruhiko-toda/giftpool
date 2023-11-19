@@ -24,8 +24,25 @@ services:
     ports:
       - 5432:5432
 
+  db-test:
+    image: postgres
+    restart: always
+    user: postgres
+    secrets:
+      - db-password
+    volumes:
+      - db-data-test:/var/lib/postgresql/data-test
+    environment:
+      - POSTGRES_DB=phoenicstar-test
+      - POSTGRES_PASSWORD_FILE=/run/secrets/db-password
+    expose:
+     - 5432
+    ports:
+      - 6432:5432
+
 volumes:
   db-data:
+  db-data-test:
 
 secrets:
   db-password:

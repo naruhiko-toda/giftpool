@@ -8,10 +8,12 @@
     "vercel-build": "prisma generate && prisma migrate deploy && bun run seed && next build",
     "start": "next start -p 8080",
     "format": "bun biome check --apply app",
-    "test": "jest",
+    "test": "bun run migrate:test && bun run seed:test && DATABASE_URL=postgresql://postgres:password@localhost:6432/phoenicstar-test?schema=public bun test",
     "e2e": "playwright test",
     "e2e:ci": "CI=true playwright test",
-    "seed": "bun run prisma/seed.ts"
+    "seed": "bun run prisma/seed.ts",
+    "migrate:test": "DATABASE_URL=postgresql://postgres:password@localhost:6432/phoenicstar-test?schema=public bun prisma migrate dev",
+    "seed:test": "DATABASE_URL=postgresql://postgres:password@localhost:6432/phoenicstar-test?schema=public bun run prisma/seed.ts"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
