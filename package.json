@@ -5,12 +5,12 @@
   "scripts": {
     "dev": "next dev -p 8080",
     "build": "next build",
+    "vercel-build": "prisma generate && prisma migrate deploy && next build",
     "start": "next start -p 8080",
-    "lint": "next lint",
+    "format": "bun biome check --apply app",
     "test": "jest",
     "e2e": "playwright test",
     "e2e:ci": "CI=true playwright test",
-    "format": "bun biome check --apply app",
     "seed": "bun run prisma/seed.ts"
   },
   "dependencies": {
