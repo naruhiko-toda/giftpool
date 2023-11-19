@@ -17,7 +17,7 @@ export const LessonCard: React.FC<Lesson> = ({ title, time, price, path, name })
           {time}分/1回
         </Typography>
         <Typography variant="h6" color="#F06292">
-          {new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'JPY' }).format(price)}~
+          ￥{price.toLocaleString()}~
         </Typography>
       </Box>
     </CardContent>
