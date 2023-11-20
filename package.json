@@ -10,8 +10,8 @@
     "migrate:test": "DATABASE_URL=postgresql://postgres:password@localhost:6432/phoenicstar-test?schema=public bun prisma migrate dev",
     "seed:test": "DATABASE_URL=postgresql://postgres:password@localhost:6432/phoenicstar-test?schema=public bun run prisma/seed.ts",
     "format": "bun biome check --apply app",
-    "e2e": "playwright test",
-    "e2e:ci": "CI=true playwright test",
+    "e2e": "DATABASE_URL=postgresql://postgres:password@localhost:6432/phoenicstar-test?schema=public playwright test",
+    "e2e:ci": "DATABASE_URL=postgresql://postgres:password@localhost:6432/phoenicstar-test?schema=public CI=true playwright test",
     "build": "next build",
     "vercel-build": "prisma generate && prisma migrate deploy && bun run seed && next build",
     "start": "next start -p 8080"
@@ -23,7 +23,6 @@
     "@mui/icons-material": "^5.14.16",
     "@mui/material": "^5.14.17",
     "@prisma/client": "^5.5.2",
-    "@types/node": "20.9.1",
     "@types/react": "18.2.37",
     "@types/react-dom": "18.2.15",
     "@vercel/postgres": "^0.5.1",
@@ -51,7 +50,6 @@
     "jest-environment-jsdom": "^29.7.0",
     "lint-staged": "^15.1.0",
     "ts-jest": "^29.1.1",
-    "ts-node": "^10.9.1",
     "webpack": "^5.89.0"
   },
   "husky": {
