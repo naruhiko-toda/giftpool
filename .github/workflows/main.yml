@@ -26,14 +26,8 @@ jobs:
     - name: setup prisma
       run: bun prisma generate
 
-    - name: migrate prisma
-      run: bun prisma migrate dev
-
-    - name: run seed
-      run: bun run seed
-
     - name: Run unit test
-      run: bun test
+      run: bun run test
 
     - name: Setup playwright
       run: bun playwright install --with-deps
