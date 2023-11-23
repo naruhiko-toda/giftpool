@@ -3,9 +3,9 @@
     "baseUrl": "./",
     "paths": {
       "@/*": ["./src/*"],
-      "@types/*": ["./src/app/types/*"],
-      "@components/*": ["./src/app/components/*"],
-      "@repositories/*": ["./src/app/repositories/*"],
+      "@types/*": ["./src/app/_types/*"],
+      "@components/*": ["./src/app/_components/*"],
+      "@repositories/*": ["./src/app/_repositories/*"],
     },
     "target": "es2022",
     "lib": ["dom", "dom.iterable", "es2022"],
