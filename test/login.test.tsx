@@ -1,7 +1,7 @@
 // @ts-ignore
 import { describe, expect, it } from 'bun:test'
+import Login from '@/app/login/page'
 import { render, screen } from '@testing-library/react'
-import Login from '../app/login/page'
 
 describe('Dashboard', () => {
   it('ログイン画面が表示されていること', async () => {

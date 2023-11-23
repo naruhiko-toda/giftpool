@@ -1,7 +1,7 @@
 // @ts-ignore
 import { describe, expect, it } from 'bun:test'
+import Home from '@/app/page'
 import { render, screen } from '@testing-library/react'
-import Home from '../app/page'
 
 describe('Home', () => {
   it('レッスン予約画面が表示されていること', async () => {
