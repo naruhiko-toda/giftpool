@@ -1,5 +1,5 @@
+import { LessonCard } from '@components/lessonCard'
 import { Lesson } from '@types/lesson'
-import { LessonCard } from './components/lessonCard'
 import { LessonRepository } from './repositories/lessons'
 
 const Home = async (): Promise<JSX.Element> => {
