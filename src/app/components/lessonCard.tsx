@@ -2,7 +2,7 @@ import { Card, CardContent, CardMedia, Divider, Typography } from '@mui/material
 import { Box } from '@mui/system'
 import React from 'react'
 
-import { Lesson } from '../types/lesson'
+import { Lesson } from '@types/lesson'
 
 export const LessonCard: React.FC<Lesson> = ({ title, time, price, path, name }): JSX.Element => (
   <Card data-testid={`lessonCard_${name}`}>
