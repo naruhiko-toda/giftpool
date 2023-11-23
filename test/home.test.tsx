@@ -1,11 +1,11 @@
 // @ts-ignore
 import { describe, expect, it } from 'bun:test'
 import { render, screen } from '@testing-library/react'
-import Page from '../app/page'
+import Home from '../app/page'
 
 describe('Home', () => {
   it('レッスン予約画面が表示されていること', async () => {
-    render(await Page())
+    render(await Home())
     expect(screen.getByText('レッスン予約')).toBeTruthy()
     expect(screen.getByText('コーチングレッスン')).toBeTruthy()
     expect(screen.getByText('90分/1回')).toBeTruthy()
