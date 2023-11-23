@@ -5,6 +5,7 @@
       "@/*": ["./src/*"],
       "@types/*": ["./src/app/types/*"],
       "@components/*": ["./src/app/components/*"],
+      "@repositories/*": ["./src/app/repositories/*"],
     },
     "target": "es2022",
     "lib": ["dom", "dom.iterable", "es2022"],
