@@ -1,6 +1,6 @@
 import { LessonCard } from '@components/lessonCard'
 import { LessonRepository } from '@repositories/lessons'
-import { Lesson } from '@types/lesson'
+import { Lesson } from '@type/lesson'
 
 const Home = async (): Promise<JSX.Element> => {
   const lessons: Lesson[] = await new LessonRepository().getLessons()
