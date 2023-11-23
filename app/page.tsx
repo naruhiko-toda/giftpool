@@ -2,7 +2,7 @@ import { LessonCard } from './components/lessonCard'
 import { LessonRepository } from './repositories/lessons'
 import { Lesson } from './types/lesson'
 
-const Page = async (): Promise<JSX.Element> => {
+const Home = async (): Promise<JSX.Element> => {
   const lessons: Lesson[] = await new LessonRepository().getLessons()
   return (
     <>
@@ -21,4 +21,4 @@ const Page = async (): Promise<JSX.Element> => {
     </>
   )
 }
-export default Page
+export default Home
