@@ -1,4 +1,4 @@
-# PhoenicStar
+# EchoPal
 
 ## Getting Started
 
