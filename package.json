@@ -10,8 +10,8 @@
     "migrate:test": "dotenv -e .env.test -- bun prisma migrate dev",
     "seed:test": "dotenv -e .env.test -- bun run prisma/seed.ts",
     "format": "bun biome check --apply .",
-    "e2e": "dotenv -e .env.test -- playwright test",
-    "e2e:ci": "dotenv -e .env.ci -- playwright test",
+    "e2e": "bun run migrate:test && bun run seed:test && dotenv -e .env.test -- playwright test",
+    "e2e:ci": "bun run migrate:test && bun run seed:test && dotenv -e .env.ci -- playwright test",
     "build": "next build",
     "vercel-build": "prisma generate && prisma migrate deploy && bun run seed && next build",
     "start": "next start -p 8080"

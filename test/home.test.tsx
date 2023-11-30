@@ -8,5 +8,6 @@ describe('Home', () => {
     render(await Home())
     expect(screen.getByText('共感しよう')).toBeTruthy()
     expect(screen.getByText('起業しようか迷っています。')).toBeTruthy()
+    expect(screen.getByText('投稿する')).toBeTruthy()
   })
 })
