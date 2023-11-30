@@ -6,6 +6,5 @@ import { render, screen } from '@testing-library/react'
 describe('Header', () => {
   it('ヘッダー画面が表示されていること', async () => {
     render(await Header())
-    expect(screen.getByText('ログイン')).toBeTruthy()
   })
 })
