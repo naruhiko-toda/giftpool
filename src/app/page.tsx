@@ -7,7 +7,7 @@ const Home = async (): Promise<JSX.Element> => {
   const lessons: Lesson[] = await new LessonRepository().getLessons()
   return (
     <>
-      <h1>レッスン予約</h1>
+      <h1>共感しよう</h1>
       {lessons.map((lesson: Lesson) => (
         <LessonCard
           key={lesson.id}
