@@ -11,15 +11,6 @@ datasource db {
   url       = env("DATABASE_URL") // uses connection pooling
 }
 
-model Lesson {
-  id    Int    @id @default(autoincrement())
-  title String
-  time  Int
-  price Int
-  path  String
-  name  String
-}
-
 model Post {
   id Int @id @default(autoincrement())
   body String @db.Text
