@@ -19,3 +19,8 @@ model Lesson {
   path  String
   name  String
 }
+
+model Post {
+  id Int @id @default(autoincrement())
+  body String @db.Text
+}
