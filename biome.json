@@ -51,10 +51,10 @@
   "javascript": {
     "formatter": {
       "enabled": true,
-      "quoteStyle": "single",
+      "quoteStyle": "double",
       "jsxQuoteStyle": "double",
       "trailingComma": "all",
-      "semicolons": "asNeeded",
+      "semicolons": "always",
       "arrowParentheses": "always",
       "indentStyle": "space",
       "indentWidth": 2,
