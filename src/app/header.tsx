@@ -1,11 +1,11 @@
-import { Box } from '@mui/material'
-import React from 'react'
+import { Box } from "@mui/material";
+import React from "react";
 
 export const Header = () => (
   <Box
     sx={{
-      display: 'flex',
-      justifyContent: 'flex-end',
+      display: "flex",
+      justifyContent: "flex-end",
     }}
   />
-)
+);

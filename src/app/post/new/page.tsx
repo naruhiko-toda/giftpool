@@ -1,5 +1,5 @@
-import { PostForm } from '@components/postForm'
-import React, { Suspense } from 'react'
+import { PostForm } from "@components/postForm";
+import React, { Suspense } from "react";
 
 const PostNew = () => {
   return (
@@ -9,6 +9,6 @@ const PostNew = () => {
         <PostForm />
       </Suspense>
     </>
-  )
-}
-export default PostNew
+  );
+};
+export default PostNew;

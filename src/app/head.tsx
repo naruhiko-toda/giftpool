@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 const Head = (): JSX.Element => (
   <head>
@@ -48,5 +48,5 @@ const Head = (): JSX.Element => (
     <link rel="manifest" href="/manifest.json" />
     <title>トップ | 共感(Echo)してくれる仲間(Pal)を</title>
   </head>
-)
-export default Head
+);
+export default Head;
