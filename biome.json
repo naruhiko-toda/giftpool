@@ -4,7 +4,15 @@
     "enabled": true
   },
   "files": {
-    "ignore": [".next", ".swc", ".vercel", "node_modules", "playwright-report", "public"]
+    "ignore": [
+      ".next",
+      ".swc",
+      ".vercel",
+      "node_modules",
+      "playwright-report",
+      "public",
+      "drizzle/meta"
+    ]
   },
   "linter": {
     "enabled": true,

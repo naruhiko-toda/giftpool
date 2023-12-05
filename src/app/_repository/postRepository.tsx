@@ -1,8 +1,9 @@
-import prisma from '@/lib/prisma'
+import { db } from '@db/db'
+import { posts } from '@db/schema'
 import { Post } from '@type/post'
 
 export class PostRepository {
   getPosts = async (): Promise<Post[]> => {
-    return prisma.post.findMany()
+    return db.select().from(posts)
   }
 }
