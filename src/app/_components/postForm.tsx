@@ -2,7 +2,7 @@
 import { TextField } from "@mui/material";
 import React, { useEffect, useRef } from "react";
 
-export const PostForm = () => {
+export const PostForm: () => React.JSX.Element = () => {
   const textFieldRef = useRef(null);
 
   useEffect(() => {

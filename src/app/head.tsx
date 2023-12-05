@@ -1,6 +1,6 @@
 import React from "react";
 
-const Head = (): JSX.Element => (
+const Head = (): React.JSX.Element => (
   <head>
     <meta name="msapplication-square70x70logo" content="/favicons/site-tile-70x70.png" />
     <meta name="msapplication-square150x150logo" content="/favicons/site-tile-150x150.png" />

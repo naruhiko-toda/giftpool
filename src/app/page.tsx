@@ -4,7 +4,7 @@ import { PostCard } from "@components/postCard";
 import Link from "next/link";
 import React from "react";
 
-const Home = async (): Promise<JSX.Element> => {
+const Home = async (): Promise<React.JSX.Element> => {
   const posts: Post[] = await new PostRepository().getPosts();
   return (
     <>
