@@ -14,7 +14,7 @@
     "e2e": "bun run migrate:test && bun run seed:test && dotenv -e .env.test -- playwright test",
     "e2e:ci": "bun run migrate:test && bun run seed:test && dotenv -e .env.ci -- playwright test",
     "build": "next build",
-    "vercel-build": "db:generate && bun run migrate && bun run seed && next build",
+    "vercel-build": "bun run db:generate && bun run migrate && bun run seed && next build",
     "start": "next start -p 8080"
   },
   "dependencies": {
