@@ -23,7 +23,6 @@ jobs:
     - name: setup DB
       run: docker-compose up -d db-test
 
-    - run: lsof -i:6432
     - run: docker network inspect echopal_default
 
     - name: setup drizzle
