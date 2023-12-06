@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev --turbo -p 8080",
     "db:generate": "dotenv -e .env.development drizzle-kit generate:pg",
+    "db:generate:test": "dotenv -e .env.development drizzle-kit generate:pg",
     "migrate": "dotenv -e .env.development drizzle-kit push:pg",
     "seed": "dotenv -e .env.development bun run db/seed.ts",
     "test": "bun run migrate:test && bun run seed:test && dotenv -e .env.test -- bun test",
