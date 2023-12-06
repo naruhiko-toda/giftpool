@@ -22,9 +22,9 @@ jobs:
 
     - name: setup DB
       run: docker-compose up -d
-
-    - name: setup drizzle
-      run: bun db:generate
+#
+#    - name: setup drizzle
+#      run: bun db:generate
 
     - name: Run unit test
       run: bun run test
