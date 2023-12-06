@@ -1,6 +1,6 @@
-import { PostRepository } from "@/app/_repository/postRepository";
-import { Post } from "@/app/_type/post";
 import { PostCard } from "@components/postCard";
+import { PostRepository } from "@repositories/postRepository";
+import { Post } from "@type/post";
 import Link from "next/link";
 import React from "react";
 
