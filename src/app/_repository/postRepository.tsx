@@ -1,4 +1,4 @@
-import { db } from "@db/db";
+import { db } from "@db/database";
 import { posts } from "@db/schema";
 import { Post } from "@type/post";
 
