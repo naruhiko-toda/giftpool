@@ -23,6 +23,8 @@ jobs:
     - name: setup DB
       run: docker-compose up -d db-test
 
+    - run: echo $(nc -z localhost 6432)
+
     - name: setup drizzle
       run: bun db:generate:test
 
