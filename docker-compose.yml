@@ -17,6 +17,7 @@ services:
     volumes:
       - db-data:/var/lib/postgresql/data
     environment:
+      - PGCONNECT_TIMEOUT=1000
       - POSTGRES_DB=echopal-dev
       - POSTGRES_PASSWORD_FILE=/run/secrets/db-password
     expose:
@@ -33,6 +34,7 @@ services:
     volumes:
       - db-data-test:/var/lib/postgresql/data-test
     environment:
+      - PGCONNECT_TIMEOUT=1000
       - POSTGRES_DB=echopal-test
       - POSTGRES_PASSWORD_FILE=/run/secrets/db-password
     expose:
