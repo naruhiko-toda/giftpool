@@ -1,4 +1,4 @@
-# EchoPal
+# GiftPool
 
 ## Getting Started
 
