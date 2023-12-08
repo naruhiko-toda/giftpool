@@ -4,10 +4,10 @@ import Home from "@/app/page";
 import { render, screen } from "@testing-library/react";
 
 describe("Home", () => {
-  it("投稿一覧が表示されていること", async () => {
+  it("プロジェクト登録画面が表示されていること", async () => {
     render(await Home());
-    expect(screen.getByText("共感しよう")).toBeTruthy();
-    expect(screen.getByText("起業しようか迷っています。")).toBeTruthy();
-    expect(screen.getByText("投稿する")).toBeTruthy();
+    expect(screen.getByText("プロジェクトを登録しましょう")).toBeTruthy();
+    expect(screen.getByText("プロジェクト名")).toBeTruthy();
+    expect(screen.getByText("金額")).toBeTruthy();
   });
 });
