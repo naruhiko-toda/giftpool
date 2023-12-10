@@ -1,6 +1,6 @@
 {
   "name": "GiftPool",
-  "short_name": "giftpool",
+  "short_name": "GiftPool",
   "description": "",
   "start_url": "/",
   "display": "standalone",
