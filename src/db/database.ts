@@ -5,7 +5,7 @@ import postgres from "postgres";
 
 class DrizzleLogger implements Logger {
   logQuery(query: string, params: unknown[]): void {
-    loggerInfo({ query, params });
+    loggerInfo({ query, params }.toString());
   }
 }
 

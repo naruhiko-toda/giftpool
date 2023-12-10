@@ -32,7 +32,6 @@ export const ProjectForm: () => React.JSX.Element = () => {
         InputProps={{
           startAdornment: <InputAdornment position="start">￥</InputAdornment>,
           inputMode: "numeric",
-          pattern: "/^-?d+(?:.d+)?$/g",
         }}
       />
       <Button type={"submit"}>登録する</Button>

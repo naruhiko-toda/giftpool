@@ -2,6 +2,6 @@ if (!("DATABASE_URL" in process.env)) throw new Error("DATABASE_URL not found on
 
 const main = async () => {};
 
-await main().then(async () => {
+main().then(async () => {
   process.exit(0);
 });
