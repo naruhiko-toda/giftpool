@@ -3,5 +3,3 @@ CREATE TABLE IF NOT EXISTS "projects" (
 	"name" varchar,
 	"price" integer
 );
---> statement-breakpoint
-DROP TABLE "posts";

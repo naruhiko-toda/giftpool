@@ -5,15 +5,8 @@
     {
       "idx": 0,
       "version": "5",
-      "when": 1701762952753,
-      "tag": "0000_bright_mathemanic",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "5",
       "when": 1702042620797,
-      "tag": "0001_flaky_veda",
+      "tag": "0000_flaky_veda",
       "breakpoints": true
     }
   ]

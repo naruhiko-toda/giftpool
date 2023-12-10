@@ -1,11 +1,11 @@
 {
-  "id": "6b2d2702-a599-4b00-aca8-0d369e93af78",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "7eb192c8-cd6b-41cd-9e36-bfdd3b930b1c",
+  "prevId": "6b2d2702-a599-4b00-aca8-0d369e93af78",
   "version": "5",
   "dialect": "pg",
   "tables": {
-    "posts": {
-      "name": "posts",
+    "projects": {
+      "name": "projects",
       "schema": "",
       "columns": {
         "id": {
@@ -14,9 +14,15 @@
           "primaryKey": true,
           "notNull": true
         },
-        "body": {
-          "name": "body",
-          "type": "text",
+        "name": {
+          "name": "name",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "price": {
+          "name": "price",
+          "type": "integer",
           "primaryKey": false,
           "notNull": false
         }
