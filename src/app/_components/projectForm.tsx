@@ -23,6 +23,7 @@ export const ProjectForm: () => React.JSX.Element = () => {
       />
       <TextField
         fullWidth
+        type={"number"}
         id={"price"}
         name={"price"}
         label={"金額"}
@@ -30,6 +31,8 @@ export const ProjectForm: () => React.JSX.Element = () => {
         placeholder={"金額を入力してください"}
         InputProps={{
           startAdornment: <InputAdornment position="start">￥</InputAdornment>,
+          inputMode: "numeric",
+          pattern: "/^-?d+(?:.d+)?$/g",
         }}
       />
       <Button type={"submit"}>登録する</Button>
