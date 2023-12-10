@@ -6,7 +6,8 @@
       "@type/*": ["./src/app/_types/*"],
       "@components/*": ["./src/app/_components/*"],
       "@repositories/*": ["./src/app/_repositories/*"],
-      "@db/*": ["./src/db/*"]
+      "@db/*": ["./src/db/*"],
+      "@actions/*": ["./src/app/_actions/*"]
     },
     "target": "es2022",
     "lib": ["dom", "dom.iterable", "es2022"],

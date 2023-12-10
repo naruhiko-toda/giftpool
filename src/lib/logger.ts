@@ -1,6 +1,7 @@
 import pino from "pino";
 
 const pinoConfig = {
+  level: process.env.NODE_ENV === "development" ? "debug" : "trace",
   formatters: {
     level: (label: string) => {
       return {

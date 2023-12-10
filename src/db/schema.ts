@@ -1,7 +1,8 @@
-import { pgTable, serial, text } from "drizzle-orm/pg-core";
-export const posts = pgTable("posts", {
+import { integer, pgTable, serial, varchar } from "drizzle-orm/pg-core";
+export const projects = pgTable("projects", {
   id: serial("id").primaryKey(),
-  body: text("body"),
+  name: varchar("name"),
+  price: integer("price"),
 });
 
-export type InsertPost = typeof posts.$inferInsert;
+export type InsertProject = typeof projects.$inferInsert;

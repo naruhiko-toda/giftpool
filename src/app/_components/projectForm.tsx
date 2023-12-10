@@ -1,6 +1,8 @@
 "use client";
-import { Container, InputAdornment, TextField, Typography } from "@mui/material";
+import { Button, InputAdornment, TextField } from "@mui/material";
 import React, { useEffect, useRef } from "react";
+
+import { createProject } from "@actions/createProject";
 
 export const ProjectForm: () => React.JSX.Element = () => {
   const textFieldRef = useRef(null);
@@ -9,28 +11,28 @@ export const ProjectForm: () => React.JSX.Element = () => {
     textFieldRef.current.focus();
   }, []);
   return (
-    <>
-      <Container maxWidth="md">
-        <Typography variant="h1" fontSize={"6vw"}>
-          プロジェクトを登録しましょう
-        </Typography>
-        <TextField
-          fullWidth
-          label={"プロジェクト名"}
-          variant="standard"
-          placeholder={"例）誕生日プレゼント"}
-          inputRef={textFieldRef}
-        />
-        <TextField
-          fullWidth
-          label={"金額"}
-          variant="standard"
-          placeholder={"金額を入力してください"}
-          InputProps={{
-            startAdornment: <InputAdornment position="start">￥</InputAdornment>,
-          }}
-        />
-      </Container>
-    </>
+    <form action={createProject}>
+      <TextField
+        fullWidth
+        id={"name"}
+        name="name"
+        label={"プロジェクト名"}
+        variant="standard"
+        placeholder={"例）誕生日プレゼント"}
+        inputRef={textFieldRef}
+      />
+      <TextField
+        fullWidth
+        id={"price"}
+        name={"price"}
+        label={"金額"}
+        variant="standard"
+        placeholder={"金額を入力してください"}
+        InputProps={{
+          startAdornment: <InputAdornment position="start">￥</InputAdornment>,
+        }}
+      />
+      <Button type={"submit"}>登録する</Button>
+    </form>
   );
 };
