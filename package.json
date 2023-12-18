@@ -5,11 +5,11 @@
   "scripts": {
     "dev": "next dev --turbo -p 8080",
     "db:generate": "dotenv -e .env.development -- drizzle-kit generate:pg",
-    "migrate": "dotenv -e .env.development -- drizzle-kit push:pg",
+    "migrate": "dotenv -e .env.development -- bun run src/db/migrate.ts",
     "seed": "dotenv -e .env.development -- bun run src/db/seed.ts",
     "test": "bun run migrate:test && bun run seed:test && dotenv -e .env.test -- bun test",
     "db:generate:test": "dotenv -e .env.test -- drizzle-kit generate:pg",
-    "migrate:test": "dotenv -e .env.test -- drizzle-kit push:pg",
+    "migrate:test": "dotenv -e .env.test -- bun run src/db/migrate.ts",
     "seed:test": "dotenv -e .env.test -- bun run src/db/seed.ts",
     "format": "bun biome check --apply .",
     "e2e": "bun run migrate:test && bun run seed:test && dotenv -e .env.test -- playwright test",
