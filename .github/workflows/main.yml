@@ -36,7 +36,7 @@ jobs:
       run: bun db:generate:test
 
     - name: Run unit test
-      run: bun run test
+      run: bun run test:ci
 
     - name: Setup playwright
       run: bun playwright install --with-deps
