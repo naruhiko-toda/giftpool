@@ -33,16 +33,16 @@ jobs:
       run: docker-compose up -d test db-test
 
     - name: setup drizzle
-      run: bun db:generate:test
+      run: docker-compose run --rm test bun db:generate:test
 
     - name: Run unit test
-      run: bun run test:ci
+      run: docker-compose run --rm test bun run test:ci
 
     - name: Setup playwright
-      run: bun playwright install --with-deps
+      run: docker-compose run --rm test bun playwright install --with-deps
 
     - name: Run Playwright tests
-      run: bun e2e:ci
+      run: docker-compose run --rm test bun e2e:ci
 
     - uses: actions/upload-artifact@v3
       if: always()
