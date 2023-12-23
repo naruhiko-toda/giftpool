@@ -29,8 +29,11 @@ jobs:
 #      if: steps.bun-cache.outputs.cache-hit != 'true'
 #      run: bun install
 
-    - name: setup DB
+    - name: setup DB and Bun
       run: docker-compose up -d test db-test
+
+    - name: Install Dependencies
+      run: docker-compose run --rm test bun install
 
     - name: setup drizzle
       run: docker-compose run --rm test bun db:generate:test
