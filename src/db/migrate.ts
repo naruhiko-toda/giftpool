@@ -7,7 +7,7 @@ console.log(process.env.NODE_ENV)
 console.log(process.env.DATABASE_URL)
 const sql = postgres(process.env.DATABASE_URL, { max: 1, onnotice: () => {} });
 const db = drizzle(sql);
-await migrate(db, { migrationsFolder: "./drizzle" })
+migrate(db, { migrationsFolder: "./drizzle" })
     .then(() => {
       console.info("Migration complete")
     })

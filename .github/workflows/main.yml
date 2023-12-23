@@ -14,23 +14,23 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Setup Bun.sh
-      uses: oven-sh/setup-bun@v1
-
-    - name: Cache bun dependencies
-      uses: actions/cache@v2
-      with:
-        path: ~/.bun
-        key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lockb') }}
-        restore-keys: |
-          ${{ runner.os }}-bun-
-
-    - name: Install Dependencies
-      if: steps.bun-cache.outputs.cache-hit != 'true'
-      run: bun install
+#    - name: Setup Bun.sh
+#      uses: oven-sh/setup-bun@v1
+#
+#    - name: Cache bun dependencies
+#      uses: actions/cache@v2
+#      with:
+#        path: ~/.bun
+#        key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lockb') }}
+#        restore-keys: |
+#          ${{ runner.os }}-bun-
+#
+#    - name: Install Dependencies
+#      if: steps.bun-cache.outputs.cache-hit != 'true'
+#      run: bun install
 
     - name: setup DB
-      run: docker-compose up -d db-test
+      run: docker-compose up -d test db-test
 
     - name: setup drizzle
       run: bun db:generate:test
