@@ -1,6 +1,6 @@
 run:
-	bun run dev
+	docker-compose up -rm app bun run dev
 ut:
-	bun run test
+	docker-compose up -rm test bun run test
 et:
-	bun run e2e
+	docker-compose up -rm test bun run e2e
