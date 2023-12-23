@@ -35,11 +35,8 @@ jobs:
     - name: Install Dependencies
       run: docker-compose run --rm test bun install
 
-    - name: setup drizzle
-      run: docker-compose run --rm test bun db:generate:test
-
     - name: Run unit test
-      run: docker-compose run --rm test bun run test:ci
+      run: docker-compose run --rm test bun run test
 
 #    - name: Setup playwright
 #      run: docker-compose run --rm test bun playwright install --with-deps
