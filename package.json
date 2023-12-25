@@ -11,7 +11,7 @@
     "e2e": "bun run migrate && bun run seed && playwright test",
     "e2e:ci": "bun run migrate && bun run seed && CI=true playwright test",
     "build": "next build",
-    "vercel-build": "bun run db:generate && bun run migrate && bun run seed && bun run build",
+    "vercel-build": "bun run migrate && bun run seed && bun run build",
     "start": "next start -p 8080"
   },
   "dependencies": {
