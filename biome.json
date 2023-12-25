@@ -10,7 +10,7 @@
       ".vercel",
       "node_modules",
       "playwright-report",
-      "public",
+      "public"
     ]
   },
   "linter": {
