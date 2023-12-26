@@ -47,3 +47,7 @@ next-env.d.ts
 **/public/worker-*.js.map
 
 db/password.txt
+
+.next_coverage/
+.nyc_output/
+coverage/

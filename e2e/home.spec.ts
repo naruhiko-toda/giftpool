@@ -1,5 +1,4 @@
-import { expect, test } from "@playwright/test";
-
+import { expect, test } from "playwright-test-coverage"
 test("投稿のストーリー", async ({ page }) => {
   await page.goto("localhost:8080/");
 
