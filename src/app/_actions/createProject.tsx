@@ -1,7 +1,7 @@
 "use server";
 import { ProjectRepository } from "@repositories/projectRepository";
 import { redirect } from "next/navigation";
-import {CreateProject} from "@type/project";
+import { CreateProject } from "@type/project";
 
 
 const createProject = async (formData: FormData) => {
