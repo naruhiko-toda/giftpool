@@ -1,9 +1,9 @@
 import prisma from "@/lib/prisma";
-import {CreateProject} from "@type/project";
+import { CreateProject, Project } from "@type/project";
 
 export class ProjectRepository {
-  async create(project: CreateProject) {
-    await prisma.project.create({
+  async create(project: CreateProject): Promise<Project> {
+    return prisma.project.create({
       data: project
     });
   }

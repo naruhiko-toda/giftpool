@@ -1,5 +1,5 @@
 run:
-	docker-compose exec --rm app bun run dev
+	docker-compose exec app bun run dev
 ut:
 	docker-compose run --rm test bun run test
 et:
