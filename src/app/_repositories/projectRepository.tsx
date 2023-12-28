@@ -4,7 +4,7 @@ import { CreateProject, Project } from "@type/project";
 export class ProjectRepository {
   async create(project: CreateProject): Promise<Project> {
     return prisma.project.create({
-      data: project
+      data: project,
     });
   }
 }

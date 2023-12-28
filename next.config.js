@@ -7,7 +7,7 @@ const pwaConfig = {
 
 const coverageConfig = () => ({
   distDir: ".next_coverage",
-  webpack: (config, options) => {
+  webpack: (config, _options) => {
     config.module.rules.push({
       test: /\.(js|jsx|ts|tsx)$/,
       loader: "babel-loader",
@@ -16,20 +16,20 @@ const coverageConfig = () => ({
         plugins: [ "istanbul" ],
         presets: [ "next/babel" ],
       },
-    })
-    return config
-  }
+    });
+    return config;
+  },
 });
-const settings = {}
+const settings = {
+  lint: {ignoreDuringBuilds: true}
+};
 
 module.exports = () => {
   if (process.env.NODE_ENV === "production") {
-    return withPWA(Object.assign(settings, pwaConfig))
-  } else {
-    if (process.env.COVERAGE) {
-      return Object.assign(settings, coverageConfig())
-    } else {
-      return settings
-    }
+    return withPWA(Object.assign(settings, pwaConfig));
   }
-}
+  if (process.env.COVERAGE) {
+    return Object.assign(settings, coverageConfig());
+  }
+  return settings;
+};

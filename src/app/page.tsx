@@ -1,7 +1,7 @@
 import { loggerInfo } from "@/lib/logger";
 import { ProjectForm } from "@components/projectForm";
-import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
 import React, { Suspense } from "react";
 
 const Home = async (): Promise<React.JSX.Element> => {

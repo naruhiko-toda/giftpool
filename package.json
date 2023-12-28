@@ -8,7 +8,7 @@
     "migrate": "bun prisma migrate dev",
     "seed": "bun run src/db/seed.ts",
     "test": "bun run migrate && bun run seed && bun test",
-    "format": "bun biome check --apply .",
+    "lint": "bun biome check --apply .",
     "e2e": "bun run migrate && bun run seed && playwright test",
     "e2e:ci": "bun run migrate && bun run seed && CI=true playwright test",
     "e2e:cov": "bun run migrate && bun run seed && playwright test; nyc report",
@@ -65,6 +65,6 @@
     }
   },
   "lint-staged": {
-    "./**/*.{js,jsx,ts,tsx,json,css,scss}": "bun biome check --apply ."
+    "./**/*.{js,jsx,ts,tsx,json,css,scss}": "bun run lint"
   }
 }

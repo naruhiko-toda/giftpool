@@ -10,7 +10,8 @@
       ".vercel",
       "node_modules",
       "playwright-report",
-      "public"
+      "public",
+      ".next_coverage"
     ]
   },
   "linter": {
