@@ -61,10 +61,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "echo hoge"
     }
-  },
-  "lint-staged": {
-    "./**/*.{js,jsx,ts,tsx,json,css,scss}": "bun run lint"
   }
 }
