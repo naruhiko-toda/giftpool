@@ -13,8 +13,8 @@ const coverageConfig = () => ({
       loader: "babel-loader",
       options: {
         cacheDirectory: true,
-        plugins: [ "istanbul" ],
-        presets: [ "next/babel" ],
+        plugins: ["istanbul"],
+        presets: ["next/babel"],
       },
     });
     return config;
