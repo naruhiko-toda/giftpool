@@ -9,6 +9,7 @@
     "seed": "bun run src/db/seed.ts",
     "test": "bun run migrate && bun run seed && bun test",
     "lint": "bun biome check --apply .",
+    "type": "bun tsc",
     "e2e": "bun run migrate && bun run seed && playwright test",
     "e2e:ci": "bun run migrate && bun run seed && CI=true playwright test",
     "e2e:cov": "bun run migrate && bun run seed && playwright test; nyc report",
