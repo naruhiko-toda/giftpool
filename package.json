@@ -61,7 +61,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "echo hoge"
+      "pre-commit": "bun run test"
     }
   }
 }
