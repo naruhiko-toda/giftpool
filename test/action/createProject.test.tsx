@@ -9,7 +9,7 @@ describe("createProject", () => {
     expect(await prisma.project.count()).toBe(0);
     const formData: FormData = new FormData();
     formData.append("name", "macbook pro");
-    formData.append("price", 1000);
+    formData.append("price", "1000");
     try {
       await createProject(formData);
     } catch (e) {

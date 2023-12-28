@@ -20,9 +20,7 @@ const coverageConfig = () => ({
     return config;
   },
 });
-const settings = {
-  lint: {ignoreDuringBuilds: true}
-};
+const settings = {};
 
 module.exports = () => {
   if (process.env.NODE_ENV === "production") {
