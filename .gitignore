@@ -51,3 +51,4 @@ db/password.txt
 .next_coverage/
 .nyc_output/
 coverage/
+.nyc_instrumented

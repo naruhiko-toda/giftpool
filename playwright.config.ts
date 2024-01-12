@@ -23,7 +23,7 @@ export default defineConfig({
   reporter: [["html", { host: "0.0.0.0", port: "9323", open: "always" }]],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-    baseURL: "http://localhost:8081/",
+    baseURL: "http://test:8081",
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "on-first-retry",
@@ -61,9 +61,9 @@ export default defineConfig({
       ],
 
   /* Run your local dev server before starting the tests */
-  webServer: {
-    command: "bun run dev:coverage",
-    url: "http://127.0.0.1:8081",
-    reuseExistingServer: !process.env.CI,
-  },
+  // webServer: {
+  //   command: "bun run dev:coverage",
+  //   url: "http://127.0.0.1:8081",
+  //   reuseExistingServer: !process.env.CI,
+  // },
 });

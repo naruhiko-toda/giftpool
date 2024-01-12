@@ -13,7 +13,8 @@
       "public",
       ".next_coverage",
       "coverage",
-      ".nyc_output"
+      ".nyc_output",
+      ".nyc_instrumented"
     ]
   },
   "linter": {
