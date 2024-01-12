@@ -3,7 +3,11 @@ run:
 ut:
 	docker-compose run --rm test bun run test
 et:
-	docker-compose run --rm test bun run e2e
+	docker-compose run --rm test bun run e2e -p 9323:9323
+cov:
+	docker-compose run --rm test bun run e2e:cov -p 9323:9323
+report:
+	docker-compose run --rm test bun nyc report
 install:
 	docker-compose run --rm app bun install
 build:

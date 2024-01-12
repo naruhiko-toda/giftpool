@@ -12,6 +12,7 @@ services:
     container_name: app
     build:
       context: .
+      target: base
     command: bun run dev
     environment:
       NODE_ENV: development
@@ -25,6 +26,7 @@ services:
     container_name: test
     build:
       context: .
+      target: test
     command: bun run dev:coverage
     environment:
       NODE_ENV: test
