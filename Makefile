@@ -10,6 +10,8 @@ report:
 	docker-compose run --rm test bun nyc report
 install:
 	docker-compose run --rm app bun install
+install_test:
+	docker-compose run --rm test bun install
 build:
 	docker-compose run --rm app bun run build
 lint:
