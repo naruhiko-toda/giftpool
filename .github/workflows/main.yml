@@ -39,7 +39,7 @@ jobs:
       run: make ut
 
     - name: Run e2e test
-      run: make cov
+      run: make et_ci
 
     - name: Notify deployment
       uses: 8398a7/action-slack@v3.8.0
