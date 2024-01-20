@@ -42,7 +42,7 @@
     "typescript": "5.3.3"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.5.1",
+    "@biomejs/biome": "1.5.2",
     "@happy-dom/global-registrator": "^13.2.0",
     "@istanbuljs/nyc-config-typescript": "^1.0.2",
     "@playwright/test": "^1.40.1",
