@@ -1,8 +1,9 @@
 "use client";
-import { Button, InputAdornment, TextField } from "@mui/material";
+import { InputAdornment, TextField } from "@mui/material";
 import React, { useEffect, useRef } from "react";
 
 import { createProject } from "@actions/createProject";
+import { SubmitButton } from "@components/submitButton";
 
 export const ProjectForm: () => React.JSX.Element = () => {
   const textFieldRef = useRef(null);
@@ -34,7 +35,7 @@ export const ProjectForm: () => React.JSX.Element = () => {
           inputMode: "numeric",
         }}
       />
-      <Button type={"submit"}>登録する</Button>
+      <SubmitButton text={"登録する"}/>
     </form>
   );
 };

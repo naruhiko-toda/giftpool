@@ -8,6 +8,9 @@ test("投稿のストーリー", async ({ page }) => {
   await page.getByPlaceholder("例）誕生日プレゼント").type("MacbookPro");
   await page.getByPlaceholder("金額を入力してください").type("10000");
   await page.getByText("登録する").click();
+  await expect(page.locator("body")).toContainText("送信中...");
   await page.waitForURL("**/projects/*");
   expect(page.url()).toContain("/projects");
+  // await expect(page.locator("body")).toContainText("MacbookPro");
+  // await expect(page.locator("body")).toContainText("10000");
 });
