@@ -35,7 +35,7 @@ export const ProjectForm: () => React.JSX.Element = () => {
           inputMode: "numeric",
         }}
       />
-      <SubmitButton text={"登録する"}/>
+      <SubmitButton text={"登録する"} />
     </form>
   );
 };
