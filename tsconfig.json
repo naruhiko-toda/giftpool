@@ -6,19 +6,19 @@
         "./src/*"
       ],
       "@type/*": [
-        "./src/app/_types/*"
+        "./src/_types/*"
       ],
       "@components/*": [
-        "./src/app/_components/*"
+        "./src/_components/*"
       ],
       "@repositories/*": [
-        "./src/app/_repositories/*"
+        "./src/_repositories/*"
       ],
       "@db/*": [
         "./src/db/*"
       ],
       "@actions/*": [
-        "./src/app/_actions/*"
+        "./src/_actions/*"
       ]
     },
     "target": "es2022",

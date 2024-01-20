@@ -3,7 +3,7 @@ import { InputAdornment, TextField } from "@mui/material";
 import React, { useEffect, useRef } from "react";
 
 import { createProject } from "@actions/createProject";
-import { SubmitButton } from "@components/submitButton";
+import { SubmitButton } from "@/_components/submitButton";
 
 export const ProjectForm: () => React.JSX.Element = () => {
   const textFieldRef = useRef(null);
