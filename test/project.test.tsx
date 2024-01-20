@@ -1,5 +1,5 @@
 // @ts-ignore
-import { describe, it, expect} from "bun:test";
+import { describe, expect, it } from "bun:test";
 import Project from "@/app/projects/[id]/page";
 // import prisma from "@/lib/prisma";
 import { render, screen } from "@testing-library/react";
