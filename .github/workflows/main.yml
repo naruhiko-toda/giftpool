@@ -23,6 +23,9 @@ jobs:
     - name: setup DB and Bun
       run: docker-compose up -d test db-test
 
+    - name: Install Dependencies
+      run: make install_test
+
     - name: Run unit test
       run: make ut
 

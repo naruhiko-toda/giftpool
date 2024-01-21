@@ -15,3 +15,5 @@ COPY . .
 
 FROM base AS test
 RUN bun playwright install && bun playwright install-deps
+
+ENTRYPOINT ["bun", "run", "e2e:cov:ci"]
