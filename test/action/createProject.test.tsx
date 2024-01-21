@@ -6,6 +6,11 @@ import { Project } from "@type/project";
 
 describe("createProject", () => {
   it("プロジェクトの作成処理", async () => {
+    try {
+      await prisma.project.deleteMany({})
+    } catch (e) {
+      loggerError(e)
+    }
     expect(await prisma.project.count()).toBe(0);
     const formData: FormData = new FormData();
     formData.append("name", "macbook pro");
