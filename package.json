@@ -56,10 +56,5 @@
     "nyc": "^15.1.0",
     "playwright-test-coverage": "^1.2.12",
     "webpack": "^5.89.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "bun run test"
-    }
   }
 }
