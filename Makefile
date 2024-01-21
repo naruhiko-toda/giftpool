@@ -14,6 +14,8 @@ install:
 	docker-compose run --rm app bun install
 install_test:
 	docker-compose run --rm test bun install
+install_pw:
+	docker-compose exec test bun playwright install
 build:
 	docker-compose run --rm app bun run build
 lint:

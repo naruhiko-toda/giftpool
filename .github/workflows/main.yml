@@ -56,10 +56,24 @@ jobs:
     - name: Run unit test
       run: make ut
 
+    - name: Playright install
+      run: |
+        make install_pw
+
     - name: Run e2e test
       run: |
         make et_ci
-        
+
+    - name: Notify deployment
+      uses: 8398a7/action-slack@v3.8.0
+      with:
+        status: ${{ job.status }}
+        fields: all
+      env:
+        GITHUB_TOKEN: ${{ secrets.DEPENDABOT_AUTO_MERGE_TOKEN }}
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      if: always()
+      
 
   deploy:
     needs: test
