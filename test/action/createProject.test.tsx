@@ -1,5 +1,4 @@
 import { describe, expect, it } from "bun:test";
-import { loggerError } from "@/lib/logger";
 import prisma from "@/lib/prisma";
 import { createProject } from "@actions/createProject";
 import { Project } from "@type/project";
