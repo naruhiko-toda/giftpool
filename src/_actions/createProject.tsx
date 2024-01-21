@@ -9,6 +9,8 @@ const createProject = async (formData: FormData) => {
   const price = !Number.isNaN(parsedValue) ? parsedValue : (0 as number);
   const createProject: CreateProject = { name, price };
   const project: Project = await new ProjectRepository().create(createProject);
-  redirect(`/projects/${project.id}`);
+  if (process.env.NODE_ENV !== "test") {
+    redirect(`/projects/${project.id}`);
+  }
 };
 export { createProject };

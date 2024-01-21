@@ -6,20 +6,13 @@ import { Project } from "@type/project";
 
 describe("createProject", () => {
   it("プロジェクトの作成処理", async () => {
-    try {
-      await prisma.project.deleteMany({});
-    } catch (e) {
-      loggerError(e);
-    }
+    await prisma.project.deleteMany({});
     expect(await prisma.project.count()).toBe(0);
+
     const formData: FormData = new FormData();
     formData.append("name", "macbook pro");
     formData.append("price", "1000");
-    try {
-      await createProject(formData);
-    } catch (e) {
-      loggerError(e);
-    }
+    await createProject(formData);
     expect(await prisma.project.count()).toBe(1);
     const project: Project = (await prisma.project.findFirst()) as Project;
     expect(project.name).toBe("macbook pro");
