@@ -7,7 +7,7 @@ et:
 cov:
 	docker-compose run --rm test bun run e2e:cov
 et_ci:
-	docker-compose exec -T test bun run e2e:cov:ci
+	docker-compose exec -it test bun run e2e:cov:ci
 report:
 	docker-compose run --rm test bun nyc report
 install:
@@ -15,7 +15,7 @@ install:
 install_test:
 	docker-compose run --rm test bun install
 install_pw:
-	docker-compose exec -T test bun playwright install
+	docker-compose exec -it test bun playwright install
 build:
 	docker-compose run --rm app bun run build
 lint:
