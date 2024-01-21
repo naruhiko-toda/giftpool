@@ -23,9 +23,6 @@ jobs:
     - name: setup DB and Bun
       run: docker-compose up -d test db-test
 
-    - name: Install Dependencies
-      run: make install_test
-
     - name: Run unit test
       run: make ut
 
@@ -53,6 +50,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
+      - uses: oven-sh/setup-bun@v1
 
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
