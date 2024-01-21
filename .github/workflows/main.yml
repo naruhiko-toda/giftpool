@@ -41,6 +41,9 @@ jobs:
     - name: Playwright install
       run: make install_pw
 
+    - name: Debug docker ps
+      run: docker ps
+
     - name: Run e2e test
       run: make et_ci
 
