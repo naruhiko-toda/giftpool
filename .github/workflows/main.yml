@@ -23,21 +23,26 @@ jobs:
     - name: setup DB and Bun
       run: docker-compose up -d test db-test
 
+    - name: Debug docker ps
+      run: docker ps
+
     - name: Install Dependencies
       run: make install_test
 
+    - name: Debug docker ps
+      run: docker ps
+
     - name: Run unit test
-      run: make ut
+      run: make ut_ci
 
     - name: Debug docker ps
       run: docker ps
 
     - name: Playwright install
-      run: docker-compose exec -T test bun playwright install
+      run: install_pw
 
     - name: Run e2e test
-      run: |
-        make et_ci
+      run: make et_ci
 
     - name: Notify deployment
       uses: 8398a7/action-slack@v3.8.0

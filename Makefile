@@ -2,6 +2,8 @@ run:
 	docker-compose exec app bun run dev
 ut:
 	docker-compose run --rm test bun run test
+ut_ci:
+	docker-compose exec -T test bun run test
 et:
 	docker-compose run --rm test bun run e2e
 cov:
@@ -13,7 +15,7 @@ report:
 install:
 	docker-compose run --rm app bun install
 install_test:
-	docker-compose run --rm test bun install
+	docker-compose exec -T test bun install
 install_pw:
 	docker-compose exec -T test bun playwright install
 build:
