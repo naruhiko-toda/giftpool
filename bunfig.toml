@@ -2,5 +2,5 @@ framework = "next"
 
 [test]
 root = "./test"
-preload = "./test/lib/happydom.ts"
+preload = "./test/lib/happydom.mts"
 coverage = true

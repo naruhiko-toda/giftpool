@@ -1,18 +1,21 @@
-import { PostCard } from "@components/postCard";
-import { PostRepository } from "@repositories/postRepository";
-import { Post } from "@type/post";
-import Link from "next/link";
-import React from "react";
+import { loggerInfo } from "@/lib/logger";
+import { ProjectForm } from "@components/projectForm";
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
+import React, { Suspense } from "react";
 
 const Home = async (): Promise<React.JSX.Element> => {
-  const posts: Post[] = await new PostRepository().getPosts();
+  loggerInfo("Access Home");
   return (
     <>
-      <h1>共感しよう</h1>
-      {posts.map((post: Post) => (
-        <PostCard key={post.id} id={post.id} body={post.body} />
-      ))}
-      <Link href={"/post/new"}>投稿する</Link>
+      <Container maxWidth="md">
+        <Typography variant="h1" fontSize={"6vw"}>
+          プロジェクトを登録しましょう
+        </Typography>
+        <Suspense>
+          <ProjectForm />
+        </Suspense>
+      </Container>
     </>
   );
 };

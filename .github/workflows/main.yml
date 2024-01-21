@@ -6,6 +6,9 @@ env:
   SLACK_USERNAME: GithubActionBot
   SLACK_ICON: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
   SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+  PATH_CACHE: /tmp/docker-img-arch
 
 jobs:
   test:
@@ -14,42 +17,35 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Setup Bun.sh
-      uses: oven-sh/setup-bun@v1
+    - uses: satackey/action-docker-layer-caching@v0.0.11
+      continue-on-error: true
 
-    - name: Cache bun dependencies
-      uses: actions/cache@v2
-      with:
-        path: ~/.bun
-        key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lockb') }}
-        restore-keys: |
-          ${{ runner.os }}-bun-
+    - name: setup DB and Bun
+      run: docker-compose up -d test db-test
+
+    - name: Debug docker ps
+      run: docker ps
 
     - name: Install Dependencies
-      if: steps.bun-cache.outputs.cache-hit != 'true'
-      run: bun install
+      run: make install_test
 
-    - name: setup DB
-      run: docker-compose up -d db-test
-
-    - name: setup drizzle
-      run: bun db:generate:test
+    - name: Debug docker ps
+      run: docker ps
 
     - name: Run unit test
-      run: bun run test
+      run: make ut_ci
 
-    - name: Setup playwright
-      run: bun playwright install --with-deps
+    - name: Debug docker ps
+      run: docker ps
 
-    - name: Run Playwright tests
-      run: bun e2e:ci
+    - name: Playwright install
+      run: make install_pw
 
-    - uses: actions/upload-artifact@v3
-      if: always()
-      with:
-        name: playwright-report
-        path: playwright-report/
-        retention-days: 30
+    - name: Debug docker ps
+      run: docker ps
+
+    - name: Run e2e test
+      run: make et_ci
 
     - name: Notify deployment
       uses: 8398a7/action-slack@v3.8.0
@@ -60,3 +56,34 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.DEPENDABOT_AUTO_MERGE_TOKEN }}
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
       if: always()
+
+  deploy:
+    needs: test
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: oven-sh/setup-bun@v1
+
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+
+      - name: Pull Vercel Environment Information
+        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Build Project Artifacts
+        run: DATABASE_URL=${{ secrets.DATABASE_URL }} vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Deploy Project Artifacts to Vercel
+        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Notify deployment
+        uses: 8398a7/action-slack@v3.8.0
+        with:
+          status: ${{ job.status }}
+          fields: all
+        env:
+          GITHUB_TOKEN: ${{ secrets.DEPENDABOT_AUTO_MERGE_TOKEN }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        if: always()

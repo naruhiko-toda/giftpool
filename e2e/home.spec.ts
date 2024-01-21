@@ -1,15 +1,16 @@
-import { expect, test } from "@playwright/test";
-
+import { expect, test } from "playwright-test-coverage";
 test("投稿のストーリー", async ({ page }) => {
-  await page.goto("localhost:8080/");
+  await page.goto("/");
 
-  await expect(page.locator("body")).toContainText("共感しよう");
-  await expect(page.locator("body")).toContainText("起業しようか迷っています。");
-  await page.getByText("投稿する").click();
-  await expect(page.locator("body")).toContainText("投稿画面");
-  await page.getByPlaceholder("今の気持ちを伝えましょう").type("副業を始めました");
-  // await page.getByText('投稿する').click()
-  // await expect(page.locator('body')).toContainText('共感しよう')
-  // await expect(page.locator('body')).toContainText('起業しようか迷っています。')
-  // await expect(page.locator('body')).toContainText('副業を始めました')
+  await expect(page.locator("body")).toContainText("プロジェクトを登録しましょう");
+  await expect(page.locator("body")).toContainText("プロジェクト名");
+  await expect(page.locator("body")).toContainText("金額");
+  await page.getByPlaceholder("例）誕生日プレゼント").type("MacbookPro");
+  await page.getByPlaceholder("金額を入力してください").type("10000");
+  await page.getByText("登録する").click();
+  await expect(page.locator("body")).toContainText("送信中...");
+  await page.waitForURL("**/projects/*");
+  expect(page.url()).toContain("/projects");
+  // await expect(page.locator("body")).toContainText("MacbookPro");
+  // await expect(page.locator("body")).toContainText("10000");
 });
