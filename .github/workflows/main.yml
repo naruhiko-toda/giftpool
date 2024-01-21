@@ -56,7 +56,7 @@ jobs:
     - name: Run unit test
       run: make ut
 
-    - name: Playright install
+    - name: Playwright install
       run: |
         make install_pw
 
