@@ -29,6 +29,9 @@ jobs:
     - name: Run unit test
       run: make ut
 
+    - name: Debug docker ps
+      run: docker ps
+
     - name: Playwright install
       run: docker-compose exec -T test bun playwright install
 
