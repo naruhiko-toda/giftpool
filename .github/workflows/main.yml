@@ -39,7 +39,7 @@ jobs:
       run: docker ps
 
     - name: Playwright install
-      run: install_pw
+      run: make install_pw
 
     - name: Run e2e test
       run: make et_ci
