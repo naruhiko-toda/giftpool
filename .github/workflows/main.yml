@@ -8,6 +8,7 @@ env:
   SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+  PATH_CACHE: /tmp/docker-img-arch
 
 jobs:
   test:
@@ -15,6 +16,36 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+
+    - name: Create image tag
+      id: imagetag
+      run: |
+        HASH_IMAGE=${{ hashFiles('./Dockerfile') }}
+        VARIANT=$(TZ=UTC-9 date '+%Y%m')${HASH_IMAGE:0:7}
+        NAME_IMAGE=nodeForTest
+        TAG="${NAME_IMAGE}:${VARIANT}"
+        NAME_TAR="${NAME_IMAGE}.${VARIANT}.tar"
+        PATH_TAR=${{ env.PATH_CACHE }}"/${NAME_TAR}"
+        echo "::set-output name=TAG::${TAG}"
+        echo "::set-output name=PATH_TAR::${PATH_TAR}"
+
+    - name: Enable cache
+      id: cache
+      uses: actions/cache@v2
+      with:
+        path: ${{ env.PATH_CACHE }}
+        key: ${{ steps.imagetag.outputs.TAG }}
+
+    - name: Load Docker image if exists
+      if: steps.cache.outputs.cache-hit == 'true'
+      run: docker load --input ${{ steps.imagetag.outputs.PATH_TAR }}
+
+    - name: Build Docker image and save
+      if: steps.cache.outputs.cache-hit != 'true'
+      run: |
+        mkdir -p ${{ env.PATH_CACHE }}
+        docker build -f './Dockerfile' -t ${{ steps.imagetag.outputs.TAG }} .
+        docker save --output ${{ steps.imagetag.outputs.PATH_TAR }} ${{ steps.imagetag.outputs.TAG }}
 
     - name: setup DB and Bun
       run: docker-compose up -d test db-test
@@ -26,7 +57,9 @@ jobs:
       run: make ut
 
     - name: Run e2e test
-      run: make et_ci
+      run: |
+        make et_ci
+        
 
   deploy:
     needs: test

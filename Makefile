@@ -7,7 +7,7 @@ et:
 cov:
 	docker-compose run --rm test bun run e2e:cov
 et_ci:
-	docker-compose run --rm test bun run e2e:cov:ci
+	docker-compose exec test bun run e2e:cov:ci
 report:
 	docker-compose run --rm test bun nyc report
 install:
