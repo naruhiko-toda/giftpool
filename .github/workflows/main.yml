@@ -30,8 +30,7 @@ jobs:
       run: make ut
 
     - name: Playwright install
-      run: |
-        make install_pw
+      run: docker-compose exec -T test bun playwright install
 
     - name: Run e2e test
       run: |
