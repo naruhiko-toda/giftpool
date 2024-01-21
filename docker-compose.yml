@@ -35,6 +35,7 @@ services:
       - ./:/app
     ports:
       - 8081:8081
+    restart: always
 
   db:
     image: postgres
