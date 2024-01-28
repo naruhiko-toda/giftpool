@@ -39,9 +39,6 @@
         "name": "next"
       }
     ],
-    "types": [
-      "bun-types"
-    ],
     "lib": [
       "dom",
       "dom.iterable",
