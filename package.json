@@ -34,7 +34,7 @@
     "pino": "^8.17.2",
     "postcss": "8.4.33",
     "postgres": "^3.4.3",
-    "prisma": "5.8.1",
+    "prisma": "5.9.0",
     "react": "canary",
     "react-dom": "canary",
     "tailwindcss": "3.4.1",
