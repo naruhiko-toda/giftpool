@@ -52,3 +52,6 @@ db/password.txt
 .nyc_output/
 coverage/
 .nyc_instrumented
+
+# Sentry Config File
+.sentryclirc
