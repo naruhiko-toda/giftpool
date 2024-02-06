@@ -1,5 +1,13 @@
 {
   "git": {
     "deploymentEnabled": false
-  }
+  },
+  "routes": [
+    {
+      "headers": {
+        "Access-Control-Allow-Origin": "*"
+      },
+      "src": "/(.*)"
+    }
+  ]
 }
