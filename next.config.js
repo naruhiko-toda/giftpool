@@ -23,7 +23,7 @@ const coverageConfig = () => ({
 });
 
 const sentryWebpackPluginOptions = {
-  silent: true,
+  silent: false,
   org: "giftpool",
   project: "giftpool",
 };
