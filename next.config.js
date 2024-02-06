@@ -57,5 +57,7 @@ module.exports = () => {
     config = withSentryConfig(config, sentryWebpackPluginOptions, sentryNextJsOptions);
   }
 
+  config = withSentryConfig(config, sentryWebpackPluginOptions, sentryNextJsOptions);
+
   return config;
 };
