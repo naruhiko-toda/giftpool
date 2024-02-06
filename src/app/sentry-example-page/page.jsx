@@ -12,15 +12,7 @@ export default function Page() {
         <meta name="description" content="Test Sentry for your Next.js app!" />
       </Head>
 
-      <main
-        style={{
-          minHeight: "100vh",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
+      <main>
         <p>Get started by sending us a sample error:</p>
         <button
           type="button"
