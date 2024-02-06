@@ -41,6 +41,14 @@ export default function Page() {
         >
           Throw error!
         </button>
+        <button
+          type="button"
+          onClick={() => {
+            Sentry.captureException("frontend direct capture")
+          }}
+        >
+          Throw sentry!
+        </button>
       </main>
     </div>
   );
