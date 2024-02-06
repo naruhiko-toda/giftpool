@@ -37,7 +37,13 @@ const sentryNextJsOptions = {
   automaticVercelMonitors: true,
 };
 
-const settings = {};
+const settings = {
+  logging: {
+    fetches: {
+      fullUrl: true,
+    },
+  },
+};
 
 module.exports = () => {
   let config = settings;

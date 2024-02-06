@@ -2,10 +2,12 @@
 // The config you add here will be used whenever the server handles a request.
 // https://docs.sentry.io/platforms/javascript/guides/nextjs/
 
+import { loggerDebug } from "@/lib/logger";
 import * as Sentry from "@sentry/nextjs";
 
-console.log("server")
-console.log(process.env.SENTRY_DSN || process.env.NEXT_PUBLIC_SENTRY_DSN)
+loggerDebug("server debug");
+loggerDebug(process.env.SENTRY_DSN || process.env.NEXT_PUBLIC_SENTRY_DSN);
+
 Sentry.init({
   dsn: process.env.SENTRY_DSN || process.env.NEXT_PUBLIC_SENTRY_DSN,
 
