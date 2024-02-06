@@ -17,7 +17,9 @@ export default function ErrorPage({
   return (
     <div>
       <h2>{error.message}</h2>
-      <button type={"button"} onClick={() => reset()}>再レンダリングする</button>
+      <button type={"button"} onClick={() => reset()}>
+        再レンダリングする
+      </button>
     </div>
   );
 }
