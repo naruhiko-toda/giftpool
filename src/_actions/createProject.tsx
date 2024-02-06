@@ -1,8 +1,8 @@
 "use server";
 import { ProjectRepository } from "@repositories/projectRepository";
+import * as Sentry from "@sentry/nextjs";
 import { CreateProject, Project } from "@type/project";
 import { redirect } from "next/navigation";
-import * as Sentry from "@sentry/nextjs"
 
 const createProject = async (formData: FormData) => {
   Sentry.captureMessage("Something went wrong");
