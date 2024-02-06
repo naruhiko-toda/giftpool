@@ -56,8 +56,5 @@ module.exports = () => {
     config = withPWA(Object.assign(config, pwaConfig));
     config = withSentryConfig(config, sentryWebpackPluginOptions, sentryNextJsOptions);
   }
-
-  config = withSentryConfig(config, sentryWebpackPluginOptions, sentryNextJsOptions);
-
   return config;
 };
