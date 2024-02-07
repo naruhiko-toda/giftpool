@@ -2,17 +2,10 @@
 // The config you add here will be used whenever the server handles a request.
 // https://docs.sentry.io/platforms/javascript/guides/nextjs/
 
-import { loggerDebug, loggerError, loggerInfo, loggerWarn } from "@/lib/logger";
 import * as Sentry from "@sentry/nextjs";
 
-loggerDebug("server debug");
-loggerDebug(process.env.SENTRY_DSN || process.env.NEXT_PUBLIC_SENTRY_DSN);
-loggerInfo("server info");
-loggerInfo(process.env.SENTRY_DSN || process.env.NEXT_PUBLIC_SENTRY_DSN);
-loggerWarn("server warn");
-loggerWarn(process.env.SENTRY_DSN || process.env.NEXT_PUBLIC_SENTRY_DSN);
-loggerError("server warn");
-loggerError(process.env.SENTRY_DSN || process.env.NEXT_PUBLIC_SENTRY_DSN);
+console.log("server debug");
+console.log(process.env.SENTRY_DSN || process.env.NEXT_PUBLIC_SENTRY_DSN);
 
 Sentry.init({
   dsn: process.env.SENTRY_DSN || process.env.NEXT_PUBLIC_SENTRY_DSN,
@@ -21,5 +14,5 @@ Sentry.init({
   tracesSampleRate: 1,
 
   // Setting this option to true will print useful information to the console while you're setting up Sentry.
-  debug: false,
+  debug: true,
 });

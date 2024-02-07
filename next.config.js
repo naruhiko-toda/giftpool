@@ -53,6 +53,7 @@ module.exports = () => {
   }
 
   if (process.env.NODE_ENV === "production") {
+    console.log("this is production!!!")
     config = withPWA(Object.assign(config, pwaConfig));
     config = withSentryConfig(config, sentryWebpackPluginOptions, sentryNextJsOptions);
   }

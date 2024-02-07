@@ -25,19 +25,16 @@ export default function Page() {
               async () => {
                 const res = await fetch("/api/sentry-example-api");
                 if (!res.ok) {
+                  loggerInfo(Sentry);
                   Sentry.init({
                     dsn: process.env.SENTRY_DSN || process.env.NEXT_PUBLIC_SENTRY_DSN,
                     tracesSampleRate: 1,
                     debug: false,
                   });
-                  loggerDebug("client debug");
-                  loggerDebug(process.env.SENTRY_DSN || process.env.NEXT_PUBLIC_SENTRY_DSN);
+                  loggerInfo(Sentry);
                   loggerInfo("client info");
                   loggerInfo(process.env.SENTRY_DSN || process.env.NEXT_PUBLIC_SENTRY_DSN);
-                  loggerWarn("client warn");
-                  loggerWarn(process.env.SENTRY_DSN || process.env.NEXT_PUBLIC_SENTRY_DSN);
-                  loggerError("client warn");
-                  loggerError(process.env.SENTRY_DSN || process.env.NEXT_PUBLIC_SENTRY_DSN);
+                  loggerInfo(process.env.NODE_ENV);
                   throw new Error("Sentry Example Frontend Error");
                 }
               },
