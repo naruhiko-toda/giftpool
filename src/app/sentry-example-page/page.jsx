@@ -2,7 +2,7 @@
 
 import * as Sentry from "@sentry/nextjs";
 import Head from "next/head";
-import { loggerDebug, loggerError, loggerInfo, loggerWarn } from "../../lib/logger";
+import { loggerInfo, loggerWarn } from "../../lib/logger";
 
 export default function Page() {
   return (

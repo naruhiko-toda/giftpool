@@ -21,6 +21,9 @@
     "enabled": true,
     "rules": {
       "all": true,
+      "suspicious": {
+        "noConsoleLog": "off"
+      },
       "style": {
         "useNamingConvention": "off"
       },
