@@ -25,6 +25,11 @@ export default function Page() {
               async () => {
                 const res = await fetch("/api/sentry-example-api");
                 if (!res.ok) {
+                  Sentry.init({
+                    dsn: process.env.SENTRY_DSN || process.env.NEXT_PUBLIC_SENTRY_DSN,
+                    tracesSampleRate: 1,
+                    debug: false,
+                  });
                   loggerDebug("client debug");
                   loggerDebug(process.env.SENTRY_DSN || process.env.NEXT_PUBLIC_SENTRY_DSN);
                   loggerInfo("client info");
@@ -45,11 +50,11 @@ export default function Page() {
           type="button"
           onClick={() => {
             loggerWarn("click sentry button!!");
-            // Sentry.init({
-            //   dsn: process.env.SENTRY_DSN || process.env.NEXT_PUBLIC_SENTRY_DSN,
-            //   tracesSampleRate: 1,
-            //   debug: false,
-            // });
+            Sentry.init({
+              dsn: process.env.SENTRY_DSN || process.env.NEXT_PUBLIC_SENTRY_DSN,
+              tracesSampleRate: 1,
+              debug: false,
+            });
             Sentry.captureException(new Error("frontend direct capture"));
             loggerWarn("done click sentry button!!");
           }}

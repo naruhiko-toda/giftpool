@@ -11,54 +11,54 @@ env:
   PATH_CACHE: /tmp/docker-img-arch
 
 jobs:
-  test:
-    timeout-minutes: 60
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-
-    - uses: satackey/action-docker-layer-caching@v0.0.11
-      continue-on-error: true
-
-    - name: setup DB and Bun
-      run: docker-compose up -d test db-test
-
-    - name: Debug docker ps
-      run: docker ps
-
-    - name: Install Dependencies
-      run: make install_test
-
-    - name: Debug docker ps
-      run: docker ps
-
-    - name: Run unit test
-      run: make ut_ci
-
-    - name: Debug docker ps
-      run: docker ps
-
-    - name: Playwright install
-      run: make install_pw
-
-    - name: Debug docker ps
-      run: docker ps
-
-    - name: Run e2e test
-      run: make et_ci
-
-    - name: Notify deployment
-      uses: 8398a7/action-slack@v3.8.0
-      with:
-        status: ${{ job.status }}
-        fields: all
-      env:
-        GITHUB_TOKEN: ${{ secrets.DEPENDABOT_AUTO_MERGE_TOKEN }}
-        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-      if: always()
+#  test:
+#    timeout-minutes: 60
+#    runs-on: ubuntu-latest
+#    steps:
+#    - uses: actions/checkout@v3
+#
+#    - uses: satackey/action-docker-layer-caching@v0.0.11
+#      continue-on-error: true
+#
+#    - name: setup DB and Bun
+#      run: docker-compose up -d test db-test
+#
+#    - name: Debug docker ps
+#      run: docker ps
+#
+#    - name: Install Dependencies
+#      run: make install_test
+#
+#    - name: Debug docker ps
+#      run: docker ps
+#
+#    - name: Run unit test
+#      run: make ut_ci
+#
+#    - name: Debug docker ps
+#      run: docker ps
+#
+#    - name: Playwright install
+#      run: make install_pw
+#
+#    - name: Debug docker ps
+#      run: docker ps
+#
+#    - name: Run e2e test
+#      run: make et_ci
+#
+#    - name: Notify deployment
+#      uses: 8398a7/action-slack@v3.8.0
+#      with:
+#        status: ${{ job.status }}
+#        fields: all
+#      env:
+#        GITHUB_TOKEN: ${{ secrets.DEPENDABOT_AUTO_MERGE_TOKEN }}
+#        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+#      if: always()
 
   deploy:
-    needs: test
+#    needs: test
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:

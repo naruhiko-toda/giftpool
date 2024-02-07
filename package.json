@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 8080",
+    "vercel-dev": "echo hoge",
     "dev:coverage": "COVERAGE=1 nyc next dev -p 8081",
     "migrate": "bun prisma migrate dev",
     "seed": "bun run src/db/seed.ts",
