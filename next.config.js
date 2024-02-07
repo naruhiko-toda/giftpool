@@ -20,6 +20,23 @@ const coverageConfig = () => ({
     return config;
   },
 });
+
+const { withSentryConfig } = require("@sentry/nextjs");
+
+const sentryWebpackConfig = {
+  silent: true,
+  org: "giftpool",
+  project: "giftpool",
+};
+const sentryConfig = {
+  widenClientFileUpload: true,
+  transpileClientSDK: true,
+  tunnelRoute: "/monitoring",
+  hideSourceMaps: true,
+  disableLogger: true,
+  automaticVercelMonitors: true,
+};
+
 const settings = {};
 
 module.exports = () => {
@@ -31,3 +48,5 @@ module.exports = () => {
   }
   return settings;
 };
+
+module.exports = withSentryConfig(module.exports, sentryWebpackConfig, sentryConfig);

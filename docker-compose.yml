@@ -17,6 +17,7 @@ services:
     environment:
       NODE_ENV: development
       DATABASE_URL: "postgresql://postgres:password@db:5432/giftpool-dev?search_path=public"
+      NEXT_PUBLIC_SENTRY_DSN: "https://62f2197e091c8ff85da928993556e963@o4506681532350464.ingest.sentry.io/4506681534775296"
     volumes:
       - ./:/app
       - node_modules:/app/node_modules
