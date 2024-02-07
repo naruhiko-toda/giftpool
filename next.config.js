@@ -1,5 +1,6 @@
 /** @type {import("next").NextConfig} */
 const withPWA = require("next-pwa");
+const { withSentryConfig } = require("@sentry/nextjs");
 
 const pwaConfig = {
   dest: "public",
@@ -20,14 +21,41 @@ const coverageConfig = () => ({
     return config;
   },
 });
-const settings = {};
+
+const sentryWebpackPluginOptions = {
+  silent: false,
+  org: "giftpool",
+  project: "giftpool",
+};
+
+const sentryNextJsOptions = {
+  widenClientFileUpload: true,
+  transpileClientSDK: true,
+  tunnelRoute: "/monitoring",
+  hideSourceMaps: true,
+  disableLogger: true,
+  automaticVercelMonitors: true,
+};
+
+const settings = {
+  logging: {
+    fetches: {
+      fullUrl: true,
+    },
+  },
+};
 
 module.exports = () => {
-  if (process.env.NODE_ENV === "production") {
-    return withPWA(Object.assign(settings, pwaConfig));
-  }
+  let config = settings;
+
   if (process.env.COVERAGE) {
-    return Object.assign(settings, coverageConfig());
+    config = Object.assign(config, coverageConfig());
   }
-  return settings;
+
+  if (process.env.NODE_ENV === "production") {
+    console.log("this is production!!!");
+    config = withPWA(Object.assign(config, pwaConfig));
+    config = withSentryConfig(config, sentryWebpackPluginOptions, sentryNextJsOptions);
+  }
+  return config;
 };
