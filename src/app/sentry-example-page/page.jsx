@@ -50,6 +50,24 @@ export default function Page() {
         >
           Throw error!
         </button>
+        <button
+          type="button"
+          style={{
+            padding: "12px",
+            cursor: "pointer",
+            backgroundColor: "#AD6CAA",
+            borderRadius: "4px",
+            border: "none",
+            color: "white",
+            fontSize: "14px",
+            margin: "18px",
+          }}
+          onClick={() => {
+            throw new Error("Sentry Direct Frontend Error");
+          }}
+        >
+          Throw direct error!
+        </button>
 
         <p>
           Next, look for the error on the{" "}
