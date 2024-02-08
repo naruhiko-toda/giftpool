@@ -11,6 +11,6 @@ test("投稿のストーリー", async ({ page }) => {
   await expect(page.locator("body")).toContainText("送信中...");
   await page.waitForURL("**/projects/*");
   expect(page.url()).toContain("/projects");
-  // await expect(page.locator("body")).toContainText("MacbookPro");
-  // await expect(page.locator("body")).toContainText("10000");
+  await expect(page.locator("body")).toContainText("MacbookPro");
+  await expect(page.locator("body")).toContainText("10000");
 });
