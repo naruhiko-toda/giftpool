@@ -9,6 +9,6 @@ export class ProjectRepository {
   }
 
   async find(id: number): Promise<Project> {
-    return prisma.project.findUnique({where: {id: id}})
+    return prisma.project.findUnique({ where: { id: id } });
   }
 }
