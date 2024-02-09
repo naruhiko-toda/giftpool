@@ -1,10 +1,10 @@
 import { AppBar, Box, Button } from "@mui/material";
-import React from "react";
-import Link from "next/link";
 import Container from "@mui/material/Container";
+import Link from "next/link";
+import React from "react";
 
 export const Header = () => (
-  <AppBar color="transparent" position="static" style={{marginBottom: "20px"}}>
+  <AppBar color="transparent" position="static" style={{ marginBottom: "20px" }}>
     <Container maxWidth="xl">
       <Box
         sx={{
@@ -17,7 +17,8 @@ export const Header = () => (
             width={"80%"}
             src="/favicons/logo_main.png"
             alt="giftpool logo"
-            aria-label={"giftpool logo"}/>
+            aria-label={"giftpool logo"}
+          />
         </Link>
         <Box
           sx={{
@@ -26,13 +27,11 @@ export const Header = () => (
           }}
         >
           <Button variant="text">
-            <Link style={{textDecoration: "none", color: "black"}} href={"/"}>
+            <Link style={{ textDecoration: "none", color: "black" }} href={"/"}>
               プロジェクトを登録
             </Link>
           </Button>
-          <Button variant="contained">
-            ログイン
-          </Button>
+          <Button variant="contained">ログイン</Button>
         </Box>
       </Box>
     </Container>
