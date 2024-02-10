@@ -48,10 +48,7 @@ export const ShareModal = ({ open, onClose, shareUrl, title }) => {
           <FacebookShareButton url={shareUrl}>
             <FacebookIcon size={iconSize} round />
           </FacebookShareButton>
-          <CopyToClipboard
-            text={shareUrl}
-            onCopy={() => {}}
-          >
+          <CopyToClipboard text={shareUrl} onCopy={() => {}}>
             <Button
               className={"react-share__ShareButton"}
               variant="contained"
