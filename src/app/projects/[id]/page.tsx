@@ -1,10 +1,10 @@
 import { loggerInfo } from "@/lib/logger";
+import { ShareButton } from "@components/shareButton";
 import { Box, Button, CircularProgress, Paper } from "@mui/material";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { ProjectRepository } from "@repositories/projectRepository";
 import { Project } from "@type/project";
-import { ShareButton } from "@components/shareButton";
 
 const ProjectPage = async ({ params }: { params: { id: string } }) => {
   loggerInfo("Access Project");
@@ -28,7 +28,7 @@ const ProjectPage = async ({ params }: { params: { id: string } }) => {
           <Button variant="contained" color="primary" style={{ marginRight: 8 }}>
             Poolする
           </Button>
-          <ShareButton/>
+          <ShareButton />
         </Box>
 
         <Paper elevation={3} style={{ padding: 16, width: "45%" }}>
