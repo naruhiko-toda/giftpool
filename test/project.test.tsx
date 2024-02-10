@@ -8,12 +8,12 @@ import { MockNavigator } from "./mock/mockNavigator";
 
 beforeEach(async () => {
   await prisma.project.deleteMany({});
+  await prisma.project.create({ data: { id: 10, name: "MacbookPro", price: 10000 } });
 });
 afterEach(cleanup);
 
 describe("Project", () => {
   it("プロジェクトが表示されていること", async () => {
-    await prisma.project.create({ data: { id: 10, name: "MacbookPro", price: 10000 } });
     render(await ProjectPage({ params: { id: "10" } }));
     expect(screen.getByText("欲しいもの:")).toBeTruthy();
     expect(screen.getByText("MacbookPro")).toBeTruthy();
@@ -21,7 +21,6 @@ describe("Project", () => {
     expect(screen.getByText("10000")).toBeTruthy();
   });
   it("プロジェクトをシェアできること_navigatorがない場合", async () => {
-    await prisma.project.create({ data: { id: 10, name: "MacbookPro", price: 10000 } });
     render(await ProjectPage({ params: { id: "10" } }));
     expect(screen.getByRole("button", { name: "シェア" })).toBeTruthy();
     await user.click(screen.getByRole("button", { name: "シェア" }));
@@ -32,7 +31,7 @@ describe("Project", () => {
     Object.defineProperty(navigator, "share", {
       value: mockNavigator.share.bind(mockNavigator),
     });
-    await prisma.project.create({ data: { id: 10, name: "MacbookPro", price: 10000 } });
+
     render(await ProjectPage({ params: { id: "10" } }));
     expect(screen.getByRole("button", { name: "シェア" })).toBeTruthy();
     await user.click(screen.getByRole("button", { name: "シェア" }));
