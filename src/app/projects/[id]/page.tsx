@@ -1,4 +1,5 @@
 import { loggerInfo } from "@/lib/logger";
+import { ShareButton } from "@components/shareButton";
 import { Box, Button, CircularProgress, Paper } from "@mui/material";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
@@ -27,7 +28,7 @@ const ProjectPage = async ({ params }: { params: { id: string } }) => {
           <Button variant="contained" color="primary" style={{ marginRight: 8 }}>
             Poolする
           </Button>
-          <Button variant="outlined">友達にシェア</Button>
+          <ShareButton />
         </Box>
 
         <Paper elevation={3} style={{ padding: 16, width: "45%" }}>

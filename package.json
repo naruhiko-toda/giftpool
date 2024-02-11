@@ -15,7 +15,7 @@
     "e2e:cov": "bun run migrate && bun run seed && playwright test; nyc report",
     "e2e:cov:ci": "bun run migrate && bun run seed && CI=true playwright test; nyc report",
     "build": "NODE_ENV=production next build",
-    "vercel-build": "bun run migrate && bun run seed && bun run build",
+    "vercel-build": "bun run migrate && bun run build",
     "start": "next start -p 8080",
     "prepare": "husky install"
   },
@@ -23,7 +23,7 @@
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@fontsource/roboto": "^5.0.8",
-    "@mui/icons-material": "5.15.8",
+    "@mui/icons-material": "5.15.9",
     "@mui/material": "5.15.9",
     "@prisma/client": "5.9.1",
     "@sentry/nextjs": "^7.100.1",
@@ -37,7 +37,10 @@
     "postgres": "^3.4.3",
     "prisma": "5.9.1",
     "react": "canary",
+    "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "canary",
+    "react-share": "^5.0.3",
+    "react-toastify": "^10.0.4",
     "tailwindcss": "3.4.1",
     "typescript": "5.3.3"
   },

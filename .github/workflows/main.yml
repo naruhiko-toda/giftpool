@@ -12,6 +12,7 @@ env:
 
 jobs:
   test:
+    if: ${{ github.event.pull_request.user.login != 'dependabot[bot]' }}
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
@@ -58,6 +59,7 @@ jobs:
       if: always()
 
   deploy:
+    if: ${{ github.event.pull_request.user.login != 'dependabot[bot]' }}
     needs: test
     timeout-minutes: 60
     runs-on: ubuntu-latest
