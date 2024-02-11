@@ -48,26 +48,33 @@ const Head = (): React.JSX.Element => (
     <link rel="manifest" href="/manifest.json" />
 
     <title>GiftPool：本当に欲しいものを、みんなの力で</title>
-    <meta name="description"
-          content="GiftPoolで、本当に価値のある特別なプレゼントを、家族や友人の支援で実現しましょう。共に夢を叶える喜びを分かち合う、新しい形の贈り物を始めませんか？あなたの夢を支えるコミュニティがここにあります。" />
-    <meta name="keywords"
-          content="GiftPool, 価値あるギフト, 本当に欲しいもの, みんなの力で, 夢の実現, 家族の支援, 友人からの贈り物, 共同購入" />
+    <meta
+      name="description"
+      content="GiftPoolで、本当に価値のある特別なプレゼントを、家族や友人の支援で実現しましょう。共に夢を叶える喜びを分かち合う、新しい形の贈り物を始めませんか？あなたの夢を支えるコミュニティがここにあります。"
+    />
+    <meta
+      name="keywords"
+      content="GiftPool, 価値あるギフト, 本当に欲しいもの, みんなの力で, 夢の実現, 家族の支援, 友人からの贈り物, 共同購入"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://giftpool.me/" />
     <meta property="og:title" content="GiftPool：本当に欲しいものを、みんなの力で" />
-    <meta property="og:description"
-          content="GiftPoolで、本当に価値のある特別なプレゼントを、家族や友人の支援で実現しましょう。共に夢を叶える喜びを分かち合う、新しい形の贈り物を始めませんか？あなたの夢を支えるコミュニティがここにあります。" />
+    <meta
+      property="og:description"
+      content="GiftPoolで、本当に価値のある特別なプレゼントを、家族や友人の支援で実現しましょう。共に夢を叶える喜びを分かち合う、新しい形の贈り物を始めませんか？あなたの夢を支えるコミュニティがここにあります。"
+    />
     <meta property="og:image" content="https://giftpool.me/favicons/logo_main.png" />
 
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://giftpool.me/" />
     <meta property="twitter:title" content="GiftPool：本当に欲しいものを、みんなの力で" />
-    <meta property="twitter:description"
-          content="GiftPoolで、本当に価値のある特別なプレゼントを、家族や友人の支援で実現しましょう。共に夢を叶える喜びを分かち合う、新しい形の贈り物を始めませんか？あなたの夢を支えるコミュニティがここにあります。" />
+    <meta
+      property="twitter:description"
+      content="GiftPoolで、本当に価値のある特別なプレゼントを、家族や友人の支援で実現しましょう。共に夢を叶える喜びを分かち合う、新しい形の贈り物を始めませんか？あなたの夢を支えるコミュニティがここにあります。"
+    />
     <meta property="twitter:image" content="https://giftpool.me/favicons/logo_main.png" />
-
   </head>
 );
 export default Head;
