@@ -4,6 +4,7 @@ import { ShareModal } from "@components/shareModal";
 import ShareIcon from "@mui/icons-material/Share";
 import { Button } from "@mui/material";
 import React from "react";
+import { loggerError, loggerInfo } from "@/lib/logger";
 
 export const ShareButton = () => {
   let title: string;
@@ -22,7 +23,16 @@ export const ShareButton = () => {
         variant="outlined"
         onClick={async () => {
           if (navigator.share) {
-            await navigator.share({ title: title, url: shareUrl });
+            try {
+              loggerInfo(`click share button: ${title} ${shareUrl}`)
+              await navigator.share({ title: title, url: shareUrl });
+            } catch (e) {
+              if (e.toString().includes("AbortError")) {
+                loggerError(e)
+              } else {
+                throw new Error(e)
+              }
+            }
           } else {
             handleOpen();
           }
