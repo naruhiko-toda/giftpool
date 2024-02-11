@@ -12,6 +12,7 @@ import {
   TwitterShareButton,
   XIcon,
 } from "react-share";
+import { toast } from "react-toastify";
 
 export const ShareModal = ({ open, onClose, shareUrl, title }) => {
   const iconSize = 48;
@@ -38,7 +39,7 @@ export const ShareModal = ({ open, onClose, shareUrl, title }) => {
         <Typography textAlign="left" marginBottom={"10px"}>
           あなたの欲しいものを友達に知らせよう
         </Typography>
-        <>
+        <Box display="flex" justifyContent="space-around">
           <TwitterShareButton url={shareUrl} title={title}>
             <XIcon size={iconSize} round />
           </TwitterShareButton>
@@ -48,8 +49,12 @@ export const ShareModal = ({ open, onClose, shareUrl, title }) => {
           <FacebookShareButton url={shareUrl}>
             <FacebookIcon size={iconSize} round />
           </FacebookShareButton>
-          <CopyToClipboard text={shareUrl} onCopy={() => {}}>
+          <CopyToClipboard text={shareUrl} onCopy={() => {
+            console.log("&&&&&&&&&&&&&&&&&&&")
+            toast.success('URLをコピーしました')}
+          }>
             <Button
+              data-testid={"copyLink"}
               className={"react-share__ShareButton"}
               variant="contained"
               color="inherit"
@@ -64,7 +69,7 @@ export const ShareModal = ({ open, onClose, shareUrl, title }) => {
               <ContentCopyIcon />
             </Button>
           </CopyToClipboard>
-        </>
+        </Box>
       </Box>
     </Modal>
   );

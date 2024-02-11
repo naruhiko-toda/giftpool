@@ -13,4 +13,7 @@ test("投稿のストーリー", async ({ page }) => {
   expect(page.url()).toContain("/projects");
   await expect(page.locator("body")).toContainText("MacbookPro");
   await expect(page.locator("body")).toContainText("10000");
+  await page.getByText("シェア").click()
+  await expect(page.locator("body")).toContainText("あなたの欲しいものを友達に知らせよう");
+  await page.getByTestId("copyLink").click()
 });
