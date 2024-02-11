@@ -15,7 +15,7 @@
     "e2e:cov": "bun run migrate && bun run seed && playwright test; nyc report",
     "e2e:cov:ci": "bun run migrate && bun run seed && CI=true playwright test; nyc report",
     "build": "NODE_ENV=production next build",
-    "vercel-build": "bun run migrate && bun run seed && bun run build",
+    "vercel-build": "bun run migrate && bun run build",
     "start": "next start -p 8080",
     "prepare": "husky install"
   },
