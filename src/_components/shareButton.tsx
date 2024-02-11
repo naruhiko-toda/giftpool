@@ -1,10 +1,10 @@
 "use client";
 
+import { loggerError, loggerInfo } from "@/lib/logger";
 import { ShareModal } from "@components/shareModal";
 import ShareIcon from "@mui/icons-material/Share";
 import { Button } from "@mui/material";
 import React from "react";
-import { loggerError, loggerInfo } from "@/lib/logger";
 
 export const ShareButton = () => {
   let title: string;
@@ -24,13 +24,13 @@ export const ShareButton = () => {
         onClick={async () => {
           if (navigator.share) {
             try {
-              loggerInfo(`click share button: ${title} ${shareUrl}`)
+              loggerInfo(`click share button: ${title} ${shareUrl}`);
               await navigator.share({ title: title, url: shareUrl });
             } catch (e) {
               if (e.toString().includes("AbortError")) {
-                loggerError(e)
+                loggerError(e);
               } else {
-                throw new Error(e)
+                throw new Error(e);
               }
             }
           } else {
