@@ -49,10 +49,12 @@ export const ShareModal = ({ open, onClose, shareUrl, title }) => {
           <FacebookShareButton url={shareUrl}>
             <FacebookIcon size={iconSize} round />
           </FacebookShareButton>
-          <CopyToClipboard text={shareUrl} onCopy={() => {
-            console.log("&&&&&&&&&&&&&&&&&&&")
-            toast.success('URLをコピーしました')}
-          }>
+          <CopyToClipboard
+            text={shareUrl}
+            onCopy={() => {
+              toast.success("URLをコピーしました");
+            }}
+          >
             <Button
               data-testid={"copyLink"}
               className={"react-share__ShareButton"}
