@@ -25,7 +25,7 @@ export const ShareButton = () => {
           if (navigator.share) {
             try {
               loggerInfo(`click share button: ${title} ${shareUrl}`);
-              await navigator.share({ title: title, url: shareUrl });
+              await navigator.share({ title: title, url: document.location.href });
             } catch (e) {
               if (e.toString().includes("AbortError")) {
                 loggerError(e);
