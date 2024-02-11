@@ -3,3 +3,5 @@
 
 docker-compose run -T --rm app bun run type
 docker-compose run -T --rm app bun run lint
+
+git add .
