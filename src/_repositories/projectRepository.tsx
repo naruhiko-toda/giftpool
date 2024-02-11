@@ -8,7 +8,7 @@ export class ProjectRepository {
     });
   }
 
-  async find(id: number): Promise<Project> {
-    return prisma.project.findUnique({ where: { id: id } });
+  async find(id: string): Promise<Project> {
+    return prisma.project.findUnique({where: {id: id}});
   }
 }

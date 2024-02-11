@@ -8,7 +8,7 @@ import { Project } from "@type/project";
 
 const ProjectPage = async ({ params }: { params: { id: string } }) => {
   loggerInfo("Access Project");
-  const project: Project = await new ProjectRepository().find(parseInt(params.id));
+  const project: Project = await new ProjectRepository().find(params.id);
   return (
     <Container>
       <Box display="flex" justifyContent="space-between" my={4}>
