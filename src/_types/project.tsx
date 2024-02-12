@@ -1,5 +1,6 @@
 export interface Project {
-  id: string;
+  id: number;
+  uuid: string;
   name: string;
   price: number;
 }

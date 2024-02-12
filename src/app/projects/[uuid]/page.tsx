@@ -6,9 +6,9 @@ import Typography from "@mui/material/Typography";
 import { ProjectRepository } from "@repositories/projectRepository";
 import { Project } from "@type/project";
 
-const ProjectPage = async ({ params }: { params: { id: string } }) => {
+const ProjectPage = async ({ params }: { params: { uuid: string } }) => {
   loggerInfo("Access Project");
-  const project: Project = await new ProjectRepository().find(params.id);
+  const project: Project = await new ProjectRepository().find(params.uuid);
   return (
     <Container>
       <Box display="flex" justifyContent="space-between" my={4}>

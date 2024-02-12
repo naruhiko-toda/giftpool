@@ -10,7 +10,7 @@ const createProject = async (formData: FormData) => {
   const createProject: CreateProject = { name, price };
   const project: Project = await new ProjectRepository().create(createProject);
   if (process.env.NODE_ENV !== "test") {
-    redirect(`/projects/${project.id}`);
+    redirect(`/projects/${project.uuid}`);
   }
 };
 export { createProject };
