@@ -37,7 +37,7 @@
     "pino": "^8.18.0",
     "postcss": "8.4.35",
     "postgres": "^3.4.3",
-    "prisma": "5.9.1",
+    "prisma": "5.12.1",
     "react": "canary",
     "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "canary",
