@@ -1,4 +1,3 @@
-import { SignInButton } from "@components/signInButton";
 import { AppBar, Box, Button } from "@mui/material";
 import Container from "@mui/material/Container";
 import Link from "next/link";
@@ -32,7 +31,6 @@ export const Header = () => (
               プロジェクトを登録
             </Link>
           </Button>
-          <SignInButton />
         </Box>
       </Box>
     </Container>

@@ -16,7 +16,7 @@ services:
     command: bun run dev
     environment:
       NODE_ENV: development
-      DATABASE_URL: "postgresql://postgres:password@db:5432/giftpool-dev?search_path=public"
+      DATABASE_URL: "postgresql://postgres:postgres@127.0.0.1:54322/postgres"
       NEXT_PUBLIC_SENTRY_DSN: "https://62f2197e091c8ff85da928993556e963@o4506681532350464.ingest.sentry.io/4506681534775296"
     volumes:
       - ./:/app
@@ -31,57 +31,17 @@ services:
     command: bun run dev:coverage
     environment:
       NODE_ENV: test
-      DATABASE_URL: "postgresql://postgres:password@db-test:5432/giftpool-test?search_path=public"
+      DATABASE_URL: "postgresql://postgres:postgres@127.0.0.1:54322/postgres"
     volumes:
       - ./:/app
     ports:
       - 8081:8081
     restart: always
 
-  db:
-    image: postgres
-    restart: always
-    user: postgres
-    secrets:
-      - db-password
-    volumes:
-      - db-data:/var/lib/postgresql/data
-    environment:
-      - PGCONNECT_TIMEOUT=2000
-      - POSTGRES_DB=giftpool-dev
-      - POSTGRES_PASSWORD_FILE=/run/secrets/db-password
-    expose:
-     - 5432
-    ports:
-      - 5432:5432
-
-  db-test:
-    image: postgres
-    restart: always
-    user: postgres
-    secrets:
-      - db-password
-    volumes:
-      - db-data-test:/var/lib/postgresql/data
-    environment:
-      - PGCONNECT_TIMEOUT=2000
-      - POSTGRES_DB=giftpool-test
-      - POSTGRES_PASSWORD_FILE=/run/secrets/db-password
-    expose:
-     - 5432
-    ports:
-      - 6432:5432
-
 volumes:
-  db-data:
-  db-data-test:
   node_modules:
     driver: local
     driver_opts:
       type: none
       device: ${PWD}/node_modules
       o: bind
-
-secrets:
-  db-password:
-    file: src/db/password.txt
