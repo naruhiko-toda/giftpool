@@ -2,7 +2,6 @@ import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import { Box, Button } from "@mui/material";
 import Modal from "@mui/material/Modal";
 import Typography from "@mui/material/Typography";
-import React from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import {
   FacebookIcon,
@@ -41,13 +40,13 @@ export const ShareModal = ({ open, onClose, shareUrl, title }) => {
         </Typography>
         <Box display="flex" justifyContent="space-around">
           <TwitterShareButton url={shareUrl} title={title}>
-            <XIcon size={iconSize} round />
+            <XIcon size={iconSize} round={true} />
           </TwitterShareButton>
           <LineShareButton url={shareUrl} title={title}>
-            <LineIcon size={iconSize} round />
+            <LineIcon size={iconSize} round={true} />
           </LineShareButton>
           <FacebookShareButton url={shareUrl}>
-            <FacebookIcon size={iconSize} round />
+            <FacebookIcon size={iconSize} round={true} />
           </FacebookShareButton>
           <CopyToClipboard
             text={shareUrl}

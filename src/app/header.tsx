@@ -1,7 +1,6 @@
 import { AppBar, Box, Button } from "@mui/material";
 import Container from "@mui/material/Container";
 import Link from "next/link";
-import React from "react";
 
 export const Header = () => (
   <AppBar color="transparent" position="static" style={{ marginBottom: "20px" }}>

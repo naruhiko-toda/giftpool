@@ -1,6 +1,7 @@
 "use client";
 import { InputAdornment, TextField } from "@mui/material";
-import React, { useEffect, useRef } from "react";
+import type React from "react";
+import { useEffect, useRef } from "react";
 
 import { createProject } from "@actions/createProject";
 import { SubmitButton } from "@components/submitButton";
@@ -14,7 +15,7 @@ export const ProjectForm: () => React.JSX.Element = () => {
   return (
     <form action={createProject}>
       <TextField
-        fullWidth
+        fullWidth={true}
         id={"name"}
         name="name"
         label={"プロジェクト名"}
@@ -23,7 +24,7 @@ export const ProjectForm: () => React.JSX.Element = () => {
         inputRef={textFieldRef}
       />
       <TextField
-        fullWidth
+        fullWidth={true}
         type={"number"}
         id={"price"}
         name={"price"}

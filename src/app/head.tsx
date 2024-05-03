@@ -1,4 +1,4 @@
-import React from "react";
+import type React from "react";
 
 const Head = (): React.JSX.Element => {
   const title: string = "GiftPool：本当に欲しいものを、みんなの力で";

@@ -2,24 +2,12 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@/*": [
-        "./src/*"
-      ],
-      "@type/*": [
-        "./src/_types/*"
-      ],
-      "@components/*": [
-        "./src/_components/*"
-      ],
-      "@repositories/*": [
-        "./src/_repositories/*"
-      ],
-      "@db/*": [
-        "./src/db/*"
-      ],
-      "@actions/*": [
-        "./src/_actions/*"
-      ]
+      "@/*": ["./src/*"],
+      "@type/*": ["./src/_types/*"],
+      "@components/*": ["./src/_components/*"],
+      "@repositories/*": ["./src/_repositories/*"],
+      "@db/*": ["./src/db/*"],
+      "@actions/*": ["./src/_actions/*"]
     },
     "target": "es2022",
     "allowJs": true,
@@ -39,11 +27,7 @@
         "name": "next"
       }
     ],
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ]
+    "lib": ["dom", "dom.iterable", "esnext"]
   },
   "include": [
     "next-env.d.ts",
@@ -52,9 +36,5 @@
     "**/*.tsx",
     ".next_coverage/types/**/*.ts"
   ],
-  "exclude": [
-    "node_modules",
-    ".next_coverage",
-    "coverage"
-  ]
+  "exclude": ["node_modules", ".next_coverage", "coverage"]
 }

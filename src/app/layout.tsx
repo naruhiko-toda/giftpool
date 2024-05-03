@@ -1,4 +1,4 @@
-import React from "react";
+import type React from "react";
 
 import { Header } from "@/app/header";
 import "@fontsource/roboto/300.css";

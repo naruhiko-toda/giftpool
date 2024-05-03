@@ -4,7 +4,7 @@ import { Box, Button, CircularProgress, Paper } from "@mui/material";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { ProjectRepository } from "@repositories/projectRepository";
-import { Project } from "@type/database";
+import type { Project } from "@type/database";
 
 const ProjectPage = async ({ params }: { params: { id: string } }) => {
   loggerInfo("Access Project");
@@ -32,7 +32,7 @@ const ProjectPage = async ({ params }: { params: { id: string } }) => {
         </Box>
 
         <Paper elevation={3} style={{ padding: 16, width: "45%" }}>
-          <Typography variant="subtitle1" gutterBottom>
+          <Typography variant="subtitle1" gutterBottom={true}>
             目標金額
           </Typography>
           <Typography variant="h4">{project.price}</Typography>

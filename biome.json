@@ -24,9 +24,6 @@
       "style": {
         "useNamingConvention": "off"
       },
-      "nursery": {
-        "noUselessLoneBlockStatements": "off"
-      },
       "complexity": {
         "useSimplifiedLogicExpression": "off"
       }

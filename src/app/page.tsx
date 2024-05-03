@@ -2,7 +2,8 @@ import { loggerInfo } from "@/lib/logger";
 import { ProjectForm } from "@components/projectForm";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
-import React, { Suspense } from "react";
+import type React from "react";
+import { Suspense } from "react";
 
 const Home = async (): Promise<React.JSX.Element> => {
   loggerInfo("Access Home");

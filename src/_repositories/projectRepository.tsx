@@ -1,5 +1,5 @@
 import { supabase } from "@/lib/supabase";
-import { InsertProject, Project } from "@type/database";
+import type { InsertProject, Project } from "@type/database";
 
 export class ProjectRepository {
   async create(project: InsertProject): Promise<Project> {
