@@ -22,7 +22,8 @@
     "rules": {
       "all": true,
       "style": {
-        "useNamingConvention": "off"
+        "useNamingConvention": "off",
+        "noNamespaceImport": "off"
       },
       "complexity": {
         "useSimplifiedLogicExpression": "off"
