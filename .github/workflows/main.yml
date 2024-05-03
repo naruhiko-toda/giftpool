@@ -33,6 +33,8 @@ jobs:
     - uses: supabase/setup-cli@v1
       with:
         version: latest
+    - name: Setup Database
+      run: supabase start
 
     - name: Run e2e test
       run: make et_ci
