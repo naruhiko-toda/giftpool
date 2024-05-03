@@ -9,6 +9,8 @@ env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
   PATH_CACHE: /tmp/docker-img-arch
+  SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+  SUPABASE_PROJECT_ID: ${{ secrets.SUPABASE_PROJECT_ID }}
 
 jobs:
   test:
@@ -27,6 +29,10 @@ jobs:
 
     - name: Playwright install
       run: make install_pw
+
+    - uses: supabase/setup-cli@v1
+      with:
+        version: latest
 
     - name: Run e2e test
       run: make et_ci
@@ -56,6 +62,10 @@ jobs:
 
       - name: Pull Vercel Environment Information
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+
+      - uses: supabase/setup-cli@v1
+        with:
+          version: latest
 
       - name: Build Project Artifacts
         run: NEXT_PUBLIC_SUPABASE_URL=${{ secrets.DATABASE_URL }} vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}

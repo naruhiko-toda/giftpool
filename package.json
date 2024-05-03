@@ -6,7 +6,7 @@
     "dev": "next dev",
     "dev:coverage": "COVERAGE=1 nyc next dev -p 4000",
     "migrate": "supabase migration up",
-    "db:deploy": "supabase db push",
+    "db:deploy": "supabase db push --project-ref $SUPABASE_PROJECT_ID",
     "seed": "bun run src/db/seed.ts",
     "lint": "bun biome check --apply .",
     "type": "bun tsc",
