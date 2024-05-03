@@ -1,14 +1,20 @@
-import prisma from "@/lib/prisma";
-import { CreateProject, Project } from "@type/project";
+import { supabase } from "@/lib/supabase";
+import { InsertProject, Project } from "@type/database";
 
 export class ProjectRepository {
-  async create(project: CreateProject): Promise<Project> {
-    return prisma.project.create({
-      data: project,
-    });
+  async create(project: InsertProject): Promise<Project> {
+    const { data, error } = await supabase.from("Project").insert(project).select();
+    if (error) {
+      console.error(error);
+    }
+    return data[0];
   }
 
-  async find(uuid: string): Promise<Project> {
-    return prisma.project.findUnique({ where: { uuid: uuid } });
+  async find(id: string): Promise<Project> {
+    const { data, error } = await supabase.from("Project").select("*").eq("id", id);
+    if (error) {
+      console.error(error);
+    }
+    return data[0];
   }
 }

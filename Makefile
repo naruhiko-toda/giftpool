@@ -1,24 +1,21 @@
 run:
-	docker-compose exec app bun run dev
-ut:
-	docker-compose run --rm test bun run test
-ut_ci:
-	docker-compose run test bun run test
+	bun run dev
 et:
-	docker-compose run --rm test bun run e2e
+	bun run e2e
 cov:
-	docker-compose run --rm test bun run e2e:cov
+	bun run e2e:cov
 et_ci:
-	docker-compose run test bun run e2e:cov:ci
+	bun run e2e:cov:ci
 report:
-	docker-compose run --rm test bun nyc report
+	bun nyc report
 install:
-	docker-compose run --rm app bun install
-install_test:
-	docker-compose run test bun install
+	bun install
 install_pw:
-	docker-compose run test bun playwright install
+	bun playwright install
 build:
-	docker-compose run --rm app bun run build
+	bun run build
 lint:
-	docker-compose run --rm app bun run lint
+	bun run lint
+gen_type:
+	supabase gen types typescript --project-id "$PROJECT_REF" --schema public > src/_types/database.ts
+	npx node_modules/better-supabase-types -i src/_types/database.ts -f

@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-docker-compose run -T --rm app bun run type
-docker-compose run -T --rm app bun run lint
+bun run type
+bun run lint
 
 git add .

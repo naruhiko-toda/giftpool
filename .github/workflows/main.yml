@@ -18,32 +18,15 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - uses: satackey/action-docker-layer-caching@v0.0.11
-      continue-on-error: true
-
-    - name: setup DB and Bun
-      run: docker-compose up -d test db-test
-
-    - name: Debug docker ps
-      run: docker ps
+    - uses: oven-sh/setup-bun@v1
+      with:
+        bun-version: latest
 
     - name: Install Dependencies
-      run: make install_test
-
-    - name: Debug docker ps
-      run: docker ps
-
-    - name: Run unit test
-      run: make ut_ci
-
-    - name: Debug docker ps
-      run: docker ps
+      run: make install
 
     - name: Playwright install
       run: make install_pw
-
-    - name: Debug docker ps
-      run: docker ps
 
     - name: Run e2e test
       run: make et_ci
@@ -75,7 +58,7 @@ jobs:
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
 
       - name: Build Project Artifacts
-        run: DATABASE_URL=${{ secrets.DATABASE_URL }} vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+        run: NEXT_PUBLIC_SUPABASE_URL=${{ secrets.DATABASE_URL }} vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
 
       - name: Deploy Project Artifacts to Vercel
         run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}

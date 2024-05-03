@@ -9,8 +9,15 @@ export default defineConfig({
     ? [["html"]]
     : [["html", { host: "0.0.0.0", port: "9323", open: "always" }]],
   use: {
-    baseURL: "http://test:8081",
+    baseURL: "http://0.0.0.0:4000",
     trace: "on-first-retry",
+  },
+  webServer: {
+    command: "bun run dev:coverage",
+    url: "http://0.0.0.0:4000",
+    reuseExistingServer: !process.env.CI,
+    stdout: "ignore",
+    stderr: "pipe",
   },
 
   projects: process.env.CI

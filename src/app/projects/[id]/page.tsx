@@ -4,11 +4,11 @@ import { Box, Button, CircularProgress, Paper } from "@mui/material";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { ProjectRepository } from "@repositories/projectRepository";
-import { Project } from "@type/project";
+import { Project } from "@type/database";
 
-const ProjectPage = async ({ params }: { params: { uuid: string } }) => {
+const ProjectPage = async ({ params }: { params: { id: string } }) => {
   loggerInfo("Access Project");
-  const project: Project = await new ProjectRepository().find(params.uuid);
+  const project: Project = await new ProjectRepository().find(params.id);
   return (
     <Container>
       <Box display="flex" justifyContent="space-between" my={4}>

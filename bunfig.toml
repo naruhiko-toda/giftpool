@@ -1,6 +1,1 @@
 framework = "next"
-
-[test]
-root = "./test"
-preload = "./test/lib/happydom.mts"
-coverage = true
