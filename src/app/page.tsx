@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography";
 import type React from "react";
 import { Suspense } from "react";
 
-const Home = async (): Promise<React.JSX.Element> => {
+const Home = (): React.JSX.Element => {
   loggerInfo("Access Home");
   return (
     <>
