@@ -23,7 +23,8 @@
       "all": true,
       "style": {
         "useNamingConvention": "off",
-        "noNamespaceImport": "off"
+        "noNamespaceImport": "off",
+        "noDefaultExport": "off"
       },
       "complexity": {
         "useSimplifiedLogicExpression": "off"
