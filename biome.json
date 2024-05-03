@@ -14,7 +14,8 @@
       ".next_coverage",
       "coverage",
       ".nyc_output",
-      ".nyc_instrumented"
+      ".nyc_instrumented",
+      "src/_types/database.ts"
     ]
   },
   "linter": {
