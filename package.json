@@ -28,6 +28,7 @@
     "@sentry/nextjs": "^7.100.1",
     "@supabase/supabase-js": "^2.43.0",
     "@types/react": "18.2.55",
+    "@types/react-copy-to-clipboard": "^5.0.7",
     "@types/react-dom": "18.2.19",
     "autoprefixer": "10.4.17",
     "better-supabase-types": "^2.7.5",
