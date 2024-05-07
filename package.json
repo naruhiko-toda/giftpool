@@ -47,7 +47,7 @@
     "zod": "^3.23.6"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.7.2",
+    "@biomejs/biome": "1.7.3",
     "@happy-dom/global-registrator": "^14.7.1",
     "@istanbuljs/nyc-config-typescript": "^1.0.2",
     "@playwright/test": "1.43.1",
